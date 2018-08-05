@@ -2,6 +2,8 @@
 
 **tuture.yml** contains metadata and everything needed to build your Tuture tutorial. Note that each field below can and should be written in the language claimed in the `language` field.
 
+> **It's strongly advised not to edit this file manually.**. We recommend writing tutorials directly in our browser editor.
+
 A full example:
 
 ```yaml
