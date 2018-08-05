@@ -140,6 +140,12 @@ explain:
   post: 此步骤最后的总结文字
 ```
 
+### `outdated`
+
+此步骤是否已经过时（由于 Git rebase 操作或其他原因）。
+
+当你运行 `git commit --amend` 或 `git rebase -i` 时，有些提交会被置换掉，它们对应的步骤也会被标记成 `outdated: true`。一般情况下，当你不再需要这些步骤时应当将它们删去。
+
 ### `diff`
 
 在这一步中添加或修改的文件。

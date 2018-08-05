@@ -140,6 +140,12 @@ explain:
   post: Sumup at the bottom of this step
 ```
 
+### `outdated`
+
+Whether this step is outdated due to Git rebase or else.
+
+When you run `git commit --amend` or `git rebase -i`, some commits are swapped out and their corresponding steps will be marked as `outdated: true`. Generally you should remove outdated steps when you don't need them any more.
+
 ### `diff`
 
 Added or changed files in this step.
