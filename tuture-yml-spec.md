@@ -26,12 +26,14 @@ steps:
         section:
           start: 1
           end: 9
-        explain: Introduction before doing something to this part of A
+        explain:
+          pre: Introduction before doing something to this part of A
       - file: Changed file A
         section:
           start: 10
           end: 20
-        explain: Introduction before doing something to this part of A
+        explain:
+          pre: Introduction before doing something to this part of A
       - file: Changed file B
         explain:
           pre: Introduction before doing something to B
@@ -47,7 +49,8 @@ steps:
           pre: Introduction before doing something to A
           post: Explanation after doing something to A
       - file: Changed file B
-        explain: Introduction before doing something to B
+        explain:
+          pre: Introduction before doing something to B
       - file: Changed file C
         explain:
           pre: Introduction before doing something to C
@@ -127,31 +130,14 @@ Here is the specification of a single step.
 
 ### `explain`
 
-Explanation for this step. Here are two ways to add your narration:
+Explanation for this step.
 
-- Provide a **string** for this field, and it will be placed at the top of this step
-
-```yaml
-explain: Introduction placed at the top of this step
-```
-
-- Provide an **array of strings** to add multiple paragraphs of explanation, which will be placed at the top of this step
+This field should be a **mapping** with keys `pre` (introduction  words placed at the top, *optional*) and `post` (sumup words placed at bottom, *optional*), with the value of each key being a **string**:
 
 ```yaml
 explain:
-  - First paragraph
-  - Second paragraph
-  - Third paragrah
-```
-
-- Provide a **mapping** with keys `pre` (placed at top, *optional*) and `post` (placed at bottom, *optional*), with the value of each key being a **string** or an **array of strings**
-
-```yaml
-explain:
-  pre: Introduction placed at the top of this step
-  post:
-    - First paragraph of sumup at the bottom of this step
-    - Second paragraph of sumup at the bottom of this step
+  pre: Introduction at the top of this step
+  post: Sumup at the bottom of this step
 ```
 
 ### `diff`
@@ -185,4 +171,4 @@ You can select your desired part of code diff by providing following fields:
 
 #### `explain`
 
-This is the same as `explain` of a step. You can provide either a **string**, an **array of strings** or a **mapping** with keys `pre` and `post`.
+This is the same as `explain` of a step. You should provide a  **mapping** with optional keys `pre` and `post`.
