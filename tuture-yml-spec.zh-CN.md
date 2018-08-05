@@ -4,7 +4,7 @@
 
 > **强烈建议不要手动修改此文件**。我们推荐直接在浏览器编辑器中书写教程。
 
-一个完整的例子：
+## 一个完整的例子
 
 ```yaml
 name: 教程名称
@@ -57,9 +57,9 @@ steps:
           post: 修改 C 之后的解释文字
 ```
 
----
+## Fields
 
-## `name`
+### `name`
 
 **[必填]** 教程的名称。
 
@@ -70,7 +70,7 @@ steps:
 - 起名字时应当能充分概括教程的内容，并且具有一定的吸引力，例如《用 Python 实现一个自己的 NoSQL 数据库》
 - 不要用空泛的词汇去描述（或者起一个本应是书名的标题），例如《学习 JavaScript》
 
-## `language`
+### `language`
 
 **[必填]** 教程的语言。
 
@@ -80,27 +80,27 @@ Tuture 非常重视国际化，因此所有教程将会根据语言分类。
 
 - 这里所说的教程是指写教程用的**自然语言**，而不是你所使用的**编程语言**。
 
-## `version`
+### `version`
 
 **[必填]** 教程的版本号。
 
-## `topics`
+### `topics`
 
 教程涉及的主题。
 
 所有与编程语言、库、框架、工具乃至软件工程有关的一切都可以作为主题。
 
-## `description`
+### `description`
 
 教程的简短描述。
 
 这能帮助人们更快地发现你的教程并且产生兴趣。
 
-## `email`
+### `email`
 
 维护者的电子邮件。
 
-## `steps`
+### `steps`
 
 **[必填]** 读者跟着阅读的步骤。
 
@@ -120,15 +120,15 @@ Tuture 非常重视国际化，因此所有教程将会根据语言分类。
 
 接下来是每一步的详细说明。
 
-### `name`
+#### `name`
 
 **[必填]** 步骤的名称。这将用对应的提交信息自动填充，你可以酌情进行修改。
 
-### `commit`
+#### `commit`
 
 **[必填]** 对应的提交 ID。请**不要**手动修改此字段。
 
-### `explain`
+#### `explain`
 
 此步骤的解释。
 
@@ -140,13 +140,13 @@ explain:
   post: 此步骤最后的总结文字
 ```
 
-### `outdated`
+#### `outdated`
 
 此步骤是否已经过时（由于 Git rebase 操作或其他原因）。
 
 当你运行 `git commit --amend` 或 `git rebase -i` 时，有些提交会被置换掉，它们对应的步骤也会被标记成 `outdated: true`。一般情况下，当你不再需要这些步骤时应当将它们删去。
 
-### `diff`
+#### `diff`
 
 在这一步中添加或修改的文件。
 
@@ -162,11 +162,11 @@ yarn.lock
 
 每个 diff 文件包括以下字段：
 
-#### `file`
+##### `file`
 
 **[必填]** 指向此文件的路径（从教程根目录开始）。Tuture 会为你从 Git 日志中提取此信息。
 
-#### `section`
+##### `section`
 
 指定要展示哪一部分代码。当你改变了一个大文件并且想要拆开来解说时，这一功能非常有用。
 
@@ -175,6 +175,46 @@ yarn.lock
 - `start`：开始的行号。如果没有提供此字段，则为 `1`
 - `end`：结束的行号。**包括此行**。如果没有提供，则将是总行数
 
-#### `explain`
+##### `explain`
 
 与每一步的 `explain` 字段相同。你可以提供一个字符串、字符串数组或是带有键 `pre` 和 `post` 的映射。
+
+## TypeScript Type Definition
+
+Here is the type definition for `Tuture` type:
+
+```typescript
+interface Explain {
+  pre?: string;
+  post?: string;
+}
+
+interface Section {
+  start?: number;
+  end?: number;
+}
+
+interface Diff {
+  file: string;
+  section?: Section;
+  explain?: Explain;
+}
+
+interface Step {
+  name: string;
+  commit: string;
+  explain?: Explain;
+  outdated?: boolean;
+  diff: Diff[];
+}
+
+interface Tuture {
+  name: string;
+  language: string;
+  version: string;
+  topics?: string[];
+  description?: string;
+  email?: string;
+  steps: Step[];
+}
+```

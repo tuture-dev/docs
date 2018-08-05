@@ -4,7 +4,7 @@
 
 > **It's strongly advised not to edit this file manually.**. We recommend writing tutorials directly in our browser editor.
 
-A full example:
+## A Full Example
 
 ```yaml
 name: Name of this tutorial
@@ -57,9 +57,9 @@ steps:
           post: Explanation after doing something to C
 ```
 
----
+## Fields
 
-## `name`
+### `name`
 
 **[Required]** Name of your tutorial.
 
@@ -70,7 +70,7 @@ This will be displayed as the title of your tutorial in [tuture-renderer](https:
 - Try to be informative and attractive, such as *Build Your Own NoSQL Database with Python*
 - Don't use general descriptions (or something like a book title), for instance *Learning JavaScript*.
 
-## `language`
+### `language`
 
 **[Required]** Language of your tutorial.
 
@@ -80,27 +80,27 @@ Tuture fully appreciates the importance of internationlization (aka i18n), so tu
 
 - This field is about **natural languages** that your tutorial is written in, not **programming languages** you've utilized in your tutorial.
 
-## `version`
+### `version`
 
 **[Required]** Version of your tutorial.
 
-## `topics`
+### `topics`
 
 Topics covered in this tutorial.
 
 Programming languages, libraries, frameworks, tools, software engineering and everything in between can serve as a valid topic.
 
-## `description`
+### `description`
 
 Short description of your tutorial.
 
 This helps people quickly discover your tutorial and get interested in it.
 
-## `email`
+### `email`
 
 Maintainer email.
 
-## `steps`
+### `steps`
 
 **[Required]** Steps for readers to follow.
 
@@ -120,15 +120,15 @@ Maintainer email.
 
 Here is the specification of a single step.
 
-### `name`
+#### `name`
 
 **[Required]** Name of this step. This will be automatically filled with corresponding commit message. You can rewrite this as you see fit.
 
-### `commit`
+#### `commit`
 
 **[Required]** Corresponding commit ID. Please **do not** manually edit this field.
 
-### `explain`
+#### `explain`
 
 Explanation for this step.
 
@@ -140,13 +140,13 @@ explain:
   post: Sumup at the bottom of this step
 ```
 
-### `outdated`
+#### `outdated`
 
 Whether this step is outdated due to Git rebase or else.
 
 When you run `git commit --amend` or `git rebase -i`, some commits are swapped out and their corresponding steps will be marked as `outdated: true`. Generally you should remove outdated steps when you don't need them any more.
 
-### `diff`
+#### `diff`
 
 Added or changed files in this step.
 
@@ -162,11 +162,11 @@ yarn.lock
 
 Each diff file has following fields:
 
-#### `file`
+##### `file`
 
 **[Required]** Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
 
-#### `section`
+##### `section`
 
 Specify which part of code diff should be displayed. This is quite handy when you have made changes to a large file and want to tear it apart for convenience of explanation.
 
@@ -175,6 +175,46 @@ You can select your desired part of code diff by providing following fields:
 - `start`: Line number to start. If not given, this will be `1`
 - `end`: Line number to stop. **This line is included**. If not given, this will be the total number of lines
 
-#### `explain`
+##### `explain`
 
 This is the same as `explain` of a step. You should provide a  **mapping** with optional keys `pre` and `post`.
+
+## TypeScript Type Definition
+
+Here is the type definition for `Tuture` type:
+
+```typescript
+interface Explain {
+  pre?: string;
+  post?: string;
+}
+
+interface Section {
+  start?: number;
+  end?: number;
+}
+
+interface Diff {
+  file: string;
+  section?: Section;
+  explain?: Explain;
+}
+
+interface Step {
+  name: string;
+  commit: string;
+  explain?: Explain;
+  outdated?: boolean;
+  diff: Diff[];
+}
+
+interface Tuture {
+  name: string;
+  language: string;
+  version: string;
+  topics?: string[];
+  description?: string;
+  email?: string;
+  steps: Step[];
+}
+```
