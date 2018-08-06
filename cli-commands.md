@@ -18,8 +18,6 @@ This command will go through following procedures:
 | ------------------ | ---------- | ----------------- | ------------------ | ------------------------------------------------------------ |
 | Tutorial Name?     | `name`     | Required          | My Awesome Tutorial | Title of this tutorial                                       |
 | Version | `version` | Required          | 0.0.1            | Version of this tutorial        |
-| Tutorial Language? | `language` | Required  | en           | Language of this tutorial |
-| Topics? | `topics` | Optional  | javascript,  git, cli | Topics of this tutorial, separated with spaces or commas, such as `express, mongodb` |
 | Maintainer email? | `email` | Optional | me@example.com | Maintainer email of this tutorial |
 
 4. Create **tuture.yml** which is everything you need to write your tutorial (refer to [tuture.yml Specification](TUTURE_YML_SPEC.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
