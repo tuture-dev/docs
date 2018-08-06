@@ -18,11 +18,9 @@
 | ------------------ | ---------- | --------- | ------------------ | ------------------------------------------------------------ |
 | Tutorial Name?     | `name`     | 必要      | My Awesome Project | 此教程的标题                                                 |
 | Version | `version` | 必要          | 0.0.1            | 此教程的版本        |
-| Tutorial Language? | `language` | 必要      | en            | 此教程的语言                                                 |
-| Topics?            | `topics`   | 可选      | -                  | 此教程的主题，不同的主题用空格或逗号分隔，例如 `express,mongodb` |
 | Maintainer email?  | `email`    | 可选      | -                  | 此教程维护者的电子邮件                                       |
 
-4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](TUTURE_YML_SPEC.zh-CN.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录，。
+4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](TUTURE_YML_SPEC.zh-CN.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
 
 5. 在你的 `.gitignore` 中添加以下规则（如果没有会为你创建）：
 

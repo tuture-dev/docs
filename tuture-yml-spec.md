@@ -8,7 +8,6 @@
 
 ```yaml
 name: Name of this tutorial
-language: en-US
 version: 0.0.1
 topics:
   - Topic A
@@ -69,16 +68,6 @@ This will be displayed as the title of your tutorial in [tuture-renderer](https:
 
 - Try to be informative and attractive, such as *Build Your Own NoSQL Database with Python*
 - Don't use general descriptions (or something like a book title), for instance *Learning JavaScript*.
-
-### `language`
-
-**[Required]** Language of your tutorial.
-
-Tuture fully appreciates the importance of internationlization (aka i18n), so tutorials will be divided into different groups by languages.
-
-**Notes**
-
-- This field is about **natural languages** that your tutorial is written in, not **programming languages** you've utilized in your tutorial.
 
 ### `version`
 
