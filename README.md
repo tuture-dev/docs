@@ -1,14 +1,14 @@
-# Tuture Documentation
+# Tuture 文档
 
-_Read this in other languages_: [简体中文](README.zh-CN.md).
+<!-- _阅读其他语言版本_: [English](README.md)。 -->
 
 ## Contents
 
-- [Getting started with Tuture](getting-started.zh-CN.md) is a detailed step-by-step tutorial on how to write with Tuture in two ways
+- [快速开始](/usage/getting-started.zh-CN.md) 是一个教会你用 Tuture 进行写作的教程
 
-- [CLI Commands](cli-commands.md) lists everything you can do with Tuture CLI
+- [CLI 命令](/usage/cli-commands.zh-CN.md) 列举了 Tuture 命令行工具的所有功能
 
-- [tuture.yml Specification](tuture-yml-spec.md) is the specification for tuture.yml
+- [tuture.yml 详细说明](/usage/tuture-yml-spec.zh-CN.md) 是 tuture.yml 的规范说明
 
 ## License
 
