@@ -14,13 +14,13 @@
 
 3. 询问你以下问题（如果使用了 `-y` 或 `--yes` 则不会询问）：
 
-| 询问               | 对应字段   | 必要/可选 | 默认值             | 含义                                                         |
-| ------------------ | ---------- | --------- | ------------------ | ------------------------------------------------------------ |
-| Tutorial Name?     | `name`     | 必要      | My Awesome Project | 此教程的标题                                                 |
-| Version | `version` | 必要          | 0.0.1            | 此教程的版本        |
-| Maintainer email?  | `email`    | 可选      | -                  | 此教程维护者的电子邮件                                       |
+| 询问              | 对应字段  | 必要/可选 | 默认值             | 含义                   |
+| ----------------- | --------- | --------- | ------------------ | ---------------------- |
+| Tutorial Name?    | `name`    | 必要      | My Awesome Project | 此教程的标题           |
+| Version           | `version` | 必要      | 0.0.1              | 此教程的版本           |
+| Maintainer email? | `email`   | 可选      | -                  | 此教程维护者的电子邮件 |
 
-4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](TUTURE_YML_SPEC.zh-CN.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
+4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](/usage/tuture-yml-spec.zh-CN.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
 
 5. 在你的 `.gitignore` 中添加以下规则（如果没有会为你创建）：
 
@@ -73,6 +73,7 @@ Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 不管你已经用 `tuture init` 命令初始化过，还是刚 clone 了一个 Tuture 教程仓库，运行 `tuture up` 都已足够。
 
 > 这条命令内部会调用 `tuture-renderer` 命令，这个命令程序应当在安装 `tuture` 之前就已经安装完成了。如果你的机器上不知为何不能使用 `tuture-renderer`，你可以用 **npm** 手动安装;
+>
 > ```bash
 > $ npm i -g tuture-renderer
 > ```

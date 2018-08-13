@@ -1,0 +1,14 @@
+{
+  "name": "tuture-docs",
+  "version": "1.0.0",
+  "repository": "https://github.com/tutureproject/docs.git",
+  "author": "dearonger <wuzhihan_1@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "devDependencies": {
+    "vuepress": "^0.14.1"
+  }
+}

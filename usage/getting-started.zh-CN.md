@@ -13,7 +13,7 @@ $ mkdir learning-webpack && cd learning-webpack
 $ git init
 ```
 
-接着我们初始化 Tuture 教程，输入 `tuture init` 命令（关于所有命令的使用方法，参考 [CLI 命令](CLI_COMMANDS.zh-CN.md)）后，回答一系列关于教程基本信息的问题：
+接着我们初始化 Tuture 教程，输入 `tuture init` 命令（关于所有命令的使用方法，参考 [CLI 命令](/usage/cli-commands.zh-CN.md)）后，回答一系列关于教程基本信息的问题：
 
 ```bash
 $ tuture init
@@ -59,7 +59,7 @@ Tuture 初始化完成后，你会发现原来的目录里多了下面这些东�
   steps: []
   ```
 
-  关于它的详细说明，参考 [tuture.yml 详细说明](TUTURE_YML_SPEC.zh-CN.md)。如果你对 YAML 语法不太熟悉，推荐阅读[这一篇文章](http://www.ruanyifeng.com/blog/2016/07/yaml.html)。
+  关于它的详细说明，参考 [tuture.yml 详细说明](/usage/tuture-yml-spec.zh-CN.md)。如果你对 YAML 语法不太熟悉，推荐阅读[这一篇文章](http://www.ruanyifeng.com/blog/2016/07/yaml.html)。
 
 ### 编写代码
 
@@ -89,10 +89,10 @@ $ npm install webpack webpack-cli --save-dev
 
 ```javascript
 function component() {
-  var element = document.createElement('div');
+  var element = document.createElement("div");
 
   // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
 
   return element;
 }
@@ -149,8 +149,9 @@ steps:
 
 我们在这一步骤的最前面添加一些说明文字，指导读者创建用于学习 webpack 所需的内容。在 Tuture 中，所有说明文字都在 `explain` 字段中，并且可以使用 Markdown 语法：
 
-```yaml
-...
+````yaml
+
+---
 steps:
   - name: 基础设置
     commit: 90ef523
@@ -167,7 +168,7 @@ steps:
       - file: index.html
       - file: package.json
       - file: src/index.js
-```
+````
 
 这里 `explain` 字段是一个数组，表示有多段说明文字。如果只有一段说明文字，那么直接填在 `explain` 字段中即可，例如：
 
@@ -177,8 +178,9 @@ explain: 唯一的一段说明文字
 
 接下来我们为”基础设置“这一步骤的内容添加说明文字。tuture.yml 中 `diff` 字段里面的文件顺序是可以任意改变的，因此我们调整一下顺序便于讲解，并且为 package.json 添加说明：
 
-```yaml
-...
+````yaml
+
+---
 steps:
   - name: 基础设置
     commit: 90ef523
@@ -197,14 +199,15 @@ steps:
       - file: package.json
         explain:
           post: 注意到我们把这个包标记为 `private`，并且去掉了原来的 `main` 字段，这是为了防止意外发布我们的代码。
-```
+````
 
-之前我们写 `explain` 的时候，是填一个字符串或一个字符串数组，这样说明文字就会放在步骤或修改文件的前面。其实 `explain` 还可以是一个 mapping，包括 `pre` 和 `post` 两个键（都是可选的），`pre` 就是放在前面的说明文字，`post` 就是放在后面的说明文字。同样地，它们分别也可以填字符串或字符串数组。关于 `explain` 字段的详细说明，参考[这篇文档](TUTURE_YML_SPEC.zh-CN.md#explain)。
+之前我们写 `explain` 的时候，是填一个字符串或一个字符串数组，这样说明文字就会放在步骤或修改文件的前面。其实 `explain` 还可以是一个 mapping，包括 `pre` 和 `post` 两个键（都是可选的），`pre` 就是放在前面的说明文字，`post` 就是放在后面的说明文字。同样地，它们分别也可以填字符串或字符串数组。关于 `explain` 字段的详细说明，参考[这篇文档](/usage/tuture-yml-spec.zh-CN.md#explain)。
 
 最后，我们为这一步骤添加总结文字。将此步骤的 `explain` 字段修改如下：
 
-```yaml
-...
+````yaml
+
+---
 steps:
   - name: 基础设置
     commit: 90ef523
@@ -222,11 +225,11 @@ steps:
         - 在这个例子中，`<script>` 标签之间存在隐含的依赖。在运行之前，我们的 `index.js` 文件依赖于包括在页面中的 `lodash` 库。这是因为 `index.js` 从未显式声明对 `lodash` 的依赖，它认为全局变量 `_` 已经存在。
         - 这种管理 JavaScript 项目存在许多问题，让我们试着用 webpack 来解决。
     diff: ...
-```
+````
 
 第一步就写好了！我们运行 `tuture up`，即可看到我们刚刚写的内容！
 
-![Tuture Up!](assets/tuture-up.png)
+![Tuture Up!](./tuture-up.png)
 
 ### 反复迭代
 
@@ -239,13 +242,13 @@ $ npm install --save lodash
 然后将 src/index.js 修改如下：
 
 ```javascript
-import _ from 'lodash';
+import _ from "lodash";
 
 function component() {
-  var element = document.createElement('div');
+  var element = document.createElement("div");
 
   // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
 
   return element;
 }
@@ -277,7 +280,8 @@ $ git commit -m "使用 webpack 管理依赖"
 再一次，我们会发现 tuture.yml 自动增加了新的提交：
 
 ```yaml
-...
+
+---
 steps:
   - name: 基础设置
     commit: 90ef523
@@ -295,8 +299,9 @@ steps:
 
 然后填写我们第二步的说明文字，删去不需要展示的 package.json：
 
-```yaml
-...
+````yaml
+
+---
 steps:
   - name: 基础设置
     commit: 90ef523
@@ -318,18 +323,18 @@ steps:
         explain: 让我们把 `lodash` 导入进来：
       - file: dist/index.html
         explain: 既然我们已经决定把所有脚本打包，我们需要更新 `index.html` 文件。删除掉引入 lodash 的 `<script>` 标签，并且修改另一个 `<script>` 标签来将我们打包后的脚本添加进来：
-```
+````
 
 接下来写最后一步，添加 webpack.config.js：
 
 ```javascript
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist")
   }
 };
 ```
@@ -343,8 +348,9 @@ $ git commit -m "使用 webpack 配置文件"
 
 填写说明文字：
 
-```yaml
-...
+````yaml
+
+---
 steps:
   - name: 基础设置
     commit: 90ef523
@@ -376,13 +382,13 @@ steps:
         section:
           start: 5
         explain: "`output` 指定了打包后输出文件的设置，这里我们设定打包后的文件名为 `main.js`，放在 `dist` 目录下。"
-```
+````
 
 有一个字段我们是从未见过的：`section`。它是用来指定某个 diff 文件的一部分，当代码文件非常长时，这个字段特别有用。在这里，我们将 webpack.config.js 拆成两部分讲解，第一部分是第 1 行到第 4 行，第二部分是第 5 行到末尾。关于 `section` 字段的具体信息，参考[这里](https://github.com/tutureproject/tuture/blob/master/docs/TUTURE_YML_SPEC.zh-CN.md#section)。
 
 最终的 tuture.yml 如下：
 
-```yaml
+````yaml
 name: 学习 webpack
 version: 0.0.1
 language: zh-CN
@@ -454,7 +460,7 @@ steps:
         section:
           start: 5
         explain: "`output` 指定了打包后输出文件的设置，这里我们设定打包后的文件名为 `main.js`，放在 `dist` 目录下。"
-```
+````
 
 最后我们提交 tuture.yml 的改动：
 
