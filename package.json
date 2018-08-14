@@ -6,9 +6,11 @@
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev",
-    "build": "vuepress build"
+    "build": "vuepress build",
+    "deploy": "./deploy.js"
   },
   "devDependencies": {
+    "ali-oss": "^6.0.1",
     "vuepress": "^0.14.1"
   }
 }
