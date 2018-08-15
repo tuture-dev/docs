@@ -72,10 +72,10 @@ Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 
 不管你已经用 `tuture init` 命令初始化过，还是刚 clone 了一个 Tuture 教程仓库，运行 `tuture up` 都已足够。
 
-> 这条命令内部会调用 `tuture-renderer` 命令，这个命令程序应当在安装 `tuture` 之前就已经安装完成了。如果你的机器上不知为何不能使用 `tuture-renderer`，你可以用 **npm** 手动安装;
+> 这条命令内部会调用 `tuture-server` 命令，这个命令程序应当与 `tuture-cli` 一起安装完成。如果你的机器上不知为何不能使用 `tuture-server`，你可以用 **npm** 手动安装;
 >
 > ```bash
-> $ npm i -g tuture-renderer
+> $ npm i -g tuture
 > ```
 
 ### 前提条件

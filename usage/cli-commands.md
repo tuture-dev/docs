@@ -69,9 +69,9 @@ Render your tutorial in the browser.
 
 Whether you have initialized with `tuture init` or have just cloned a Tuture tutorial repository, running `tuture up` both suffices.
 
-> This command will invoke `tuture-renderer` under the hood, which should have been installed before `tuture`. If `tuture-renderer` is not available on your machine somehow, you can manually install it with **npm**:
+> This command will invoke `tuture-server` under the hood, which should have been installed together with `tuture-cli`. If `tuture-server` is not available on your machine somehow, you can manually install it with **npm**:
 > ```bash
-> $ npm i -g tuture-renderer
+> $ npm i -g tuture
 > ```
 
 ### Preconditions
