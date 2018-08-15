@@ -22,21 +22,25 @@ steps:
       post: Sumup placed at the bottom of this step
     diff:
       - file: Changed file A
+        display: true
         section:
           start: 1
           end: 9
         explain:
           pre: Introduction before doing something to this part of A
       - file: Changed file A
+        display: true
         section:
           start: 10
           end: 20
         explain:
           pre: Introduction before doing something to this part of A
       - file: Changed file B
+        display: true
         explain:
           pre: Introduction before doing something to B
           post: Explanation after doing something to B
+      - file: Changed file C
   - name: Message of commit ae05546
     commit: a45bec1
     explain:
@@ -44,13 +48,16 @@ steps:
       post: Sumup placed at the bottom of this step
     diff:
       - file: Changed file A
+        display: true
         explain:
           pre: Introduction before doing something to A
           post: Explanation after doing something to A
       - file: Changed file B
+        display: true
         explain:
           pre: Introduction before doing something to B
       - file: Changed file C
+        display: true
         explain:
           pre: Introduction before doing something to C
           post: Explanation after doing something to C
@@ -60,9 +67,7 @@ steps:
 
 ### `name`
 
-**[Required]** Name of your tutorial.
-
-This will be displayed as the title of your tutorial in [tuture-renderer](https://github.com/tutureproject/renderer). By default it's *My Awesome Tutorial*.
+**[Required]** Name of your tutorial. By default it's *My Awesome Tutorial*.
 
 **Advices**
 
@@ -139,7 +144,15 @@ When you run `git commit --amend` or `git rebase -i`, some commits are swapped o
 
 Added or changed files in this step.
 
-**Notes**
+Each diff file has following fields:
+
+##### `file`
+
+**[Required]** Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
+
+#### `display`
+
+Whether this file should be displayed in the tutorial.
 
 Changes to following files will not be tracked by default.
 
@@ -148,12 +161,6 @@ tuture.yml
 package-lock.json
 yarn.lock
 ```
-
-Each diff file has following fields:
-
-##### `file`
-
-**[Required]** Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
 
 ##### `section`
 
@@ -170,7 +177,7 @@ This is the same as `explain` of a step. You should provide a  **mapping** with 
 
 ## TypeScript Type Definition
 
-Here is the type definition for `Tuture` type:
+Here is the type definition for `Tuture`:
 
 ```typescript
 interface Explain {
@@ -185,6 +192,7 @@ interface Section {
 
 interface Diff {
   file: string;
+  display?: boolean;
   section?: Section;
   explain?: Explain;
 }

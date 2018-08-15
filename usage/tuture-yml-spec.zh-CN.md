@@ -22,35 +22,42 @@ steps:
       post: 此步骤最后的总结文字
     diff:
       - file: 发生变化的文件 A
+        display: true
         section:
           start: 1
           end: 9
         explain:
           pre: 修改此部分 A 之前的介绍文字
       - file: 发生变化的文件 A
+        display: true
         section:
           start: 10
           end: 20
         explain:
           pre: 修改此部分 A 之前的介绍文字
       - file: 发生变化的文件 B
+        display: true
         explain:
           pre: 修改 B 之前的介绍文字
           post: 修改 B 之后的解释文字
-  - name: ae05546 的提交信息
+      - file: 发生变化的文件 C
+  - name: a45bec1 的提交信息
     commit: a45bec1
     explain:
       pre: 此步骤最前面的介绍文字
       post: 此步骤最后的总结文字
     diff:
       - file: 发生变化的文件 A
+        display: true
         explain:
           pre: 修改 A 之前的介绍文字
           post: 修改 A 之后的解释文字
       - file: 发生变化的文件 B
+        display: true
         explain:
           pre: 在修改 B 之前的介绍
       - file: 发生变化的文件 C
+        display: true
         explain:
           pre: 修改 C 之前的介绍文字
           post: 修改 C 之后的解释文字
@@ -60,9 +67,7 @@ steps:
 
 ### `name`
 
-**[必填]** 教程的名称。
-
-所填的名称将作为 [tuture-renderer](https://github.com/tutureproject/renderer) 渲染出来的教程的标题。默认为 My Awesome Tutorial。
+**[必填]** 教程的名称。默认为 My Awesome Tutorial。
 
 **建议**
 
@@ -139,7 +144,15 @@ explain:
 
 在这一步中添加或修改的文件。
 
-**注意**
+每个 diff 文件包括以下字段：
+
+##### `file`
+
+**[必填]** 指向此文件的路径（从教程根目录开始）。Tuture 会为你从 Git 日志中提取此信息。
+
+#### `display`
+
+此文件是否应当在教程中显示。
 
 所有对以下文件的改变默认不会被记录：
 
@@ -148,12 +161,6 @@ tuture.yml
 package-lock.json
 yarn.lock
 ```
-
-每个 diff 文件包括以下字段：
-
-##### `file`
-
-**[必填]** 指向此文件的路径（从教程根目录开始）。Tuture 会为你从 Git 日志中提取此信息。
 
 ##### `section`
 
@@ -168,9 +175,9 @@ yarn.lock
 
 与每一步的 `explain` 字段相同。你可以提供一个字符串、字符串数组或是带有键 `pre` 和 `post` 的映射。
 
-## TypeScript Type Definition
+## TypeScript 类型定义
 
-Here is the type definition for `Tuture` type:
+以下是 `Tuture` 的类型定义。
 
 ```typescript
 interface Explain {
@@ -185,6 +192,7 @@ interface Section {
 
 interface Diff {
   file: string;
+  display: boolean;
   section?: Section;
   explain?: Explain;
 }
