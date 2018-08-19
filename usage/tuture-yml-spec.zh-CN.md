@@ -8,12 +8,10 @@
 
 ```yaml
 name: 教程名称
-version: 0.0.1
 topics:
   - JavaScript
   - Express
 description: 这是我写的第一篇教程，快来看看吧
-maintainer: maintainer@example.com
 steps:
   - name: ae05546 的提交信息
     commit: ae05546
@@ -74,10 +72,6 @@ steps:
 - 起名字时应当能充分概括教程的内容，并且具有一定的吸引力，例如《用 Python 实现一个自己的 NoSQL 数据库》
 - 不要用空泛的词汇去描述（或者起一个本应是书名的标题），例如《学习 JavaScript》
 
-### `version`
-
-**[必填]** 教程的版本号。
-
 ### `topics`
 
 教程涉及的主题。
@@ -89,10 +83,6 @@ steps:
 教程的简短描述。
 
 这能帮助人们更快地发现你的教程并且产生兴趣。
-
-### `email`
-
-维护者的电子邮件。
 
 ### `steps`
 

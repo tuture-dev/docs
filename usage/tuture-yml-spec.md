@@ -8,12 +8,10 @@
 
 ```yaml
 name: Name of this tutorial
-version: 0.0.1
 topics:
   - Topic A
   - Topic B
 description: This is my first tutorial, come and read it!
-maintainer: maintainer@example.com
 steps:
   - name: Message of commit ae05546
     commit: ae05546
@@ -74,10 +72,6 @@ steps:
 - Try to be informative and attractive, such as *Build Your Own NoSQL Database with Python*
 - Don't use general descriptions (or something like a book title), for instance *Learning JavaScript*.
 
-### `version`
-
-**[Required]** Version of your tutorial.
-
 ### `topics`
 
 Topics covered in this tutorial.
@@ -89,10 +83,6 @@ Programming languages, libraries, frameworks, tools, software engineering and ev
 Short description of your tutorial.
 
 This helps people quickly discover your tutorial and get interested in it.
-
-### `email`
-
-Maintainer email.
 
 ### `steps`
 
