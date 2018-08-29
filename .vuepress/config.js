@@ -1,24 +1,22 @@
 module.exports = {
-  title: "Tuture",
-  description: "Just playing around",
+  title: '图雀',
+  description: '技术教程写作工具和分享平台',
   head: [
     [
-      "link",
-      { rel: "shortcut icon", type: "image/x-icon", href: `favicon.ico` }
-    ]
+      'link',
+      { rel: 'shortcut icon', type: 'image/x-icon', href: `favicon.ico` },
+    ],
   ],
   themeConfig: {
-    // 添加导航栏
     nav: [
-      { text: "文档", link: "/" },
-      { text: "GitHub", link: "https://github.com/tutureproject/docs" }
+      { text: '指南', link: '/guide/' },
+      { text: '参考', link: '/reference/' },
+      { text: 'GitHub', link: 'https://github.com/tutureproject/docs' },
+      { text: 'tuture.co', link: 'https://tuture.co' },
     ],
-    // 为以下路由添加侧边栏
-    sidebar: [
-      "/",
-      "/usage/getting-started.zh-CN.md",
-      "/usage/cli-commands.zh-CN.md",
-      "/usage/tuture-yml-spec.zh-CN.md"
-    ]
-  }
+    sidebar: {
+      '/guide/': ['', 'installation.zh-CN'],
+      '/reference/': ['', 'cli-commands.zh-CN', 'tuture-yml-spec.zh-CN'],
+    },
+  },
 };
