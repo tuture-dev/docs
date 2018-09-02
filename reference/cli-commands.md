@@ -2,7 +2,7 @@
 
 Following commands assume that you are working on a Git repo. If you does not have Git on your machine, please download it from [here](https://git-scm.com/downloads).
 
-## `tuture init`
+## init
 
 Initialize a Tuture tutorial.
 
@@ -17,8 +17,11 @@ This command will go through following procedures:
 | Prompt             | Fields     | Required/Optional | Default            | Meaning                                                      |
 | ------------------ | ---------- | ----------------- | ------------------ | ------------------------------------------------------------ |
 | Tutorial Name?     | `name`     | Required          | My Awesome Tutorial | Title of this tutorial                                       |
-| Version | `version` | Required          | 0.0.1            | Version of this tutorial        |
-| Maintainer email? | `email` | Optional | me@example.com | Maintainer email of this tutorial |
+| Topics | `topics` | Optional  | -           | Topics of this tutorial        |
+
+::: tip
+You can separate multiple topics with any non alphanumeric characters, like `javascipt,react,mobx` or `python/tensorflow`.
+:::
 
 4. Create **tuture.yml** which is everything you need to write your tutorial (refer to [tuture.yml Specification](TUTURE_YML_SPEC.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
 
@@ -42,7 +45,7 @@ Do not ask for prompts and fill in default values.
 
 Output usage information.
 
-## `tuture reload`
+## reload
 
 Update Tuture files to the latest repo.
 
@@ -51,11 +54,13 @@ Tuture will do following two things by extracting latest changes from Git logs:
 - Add diff file of new commits
 - Append new steps to **tuture.yml**
 
-Note that this command will be automatically invoked after each commit. You can also run this command manually.
+::: note
+This command will be automatically invoked after each commit. You can also run this command manually.
+:::
 
-### Preconditions
-
+::: warning
 Current working directory should already be initialized with `tuture init`.
+:::
 
 ### Options
 
@@ -63,20 +68,23 @@ Current working directory should already be initialized with `tuture init`.
 
 Output usage information.
 
-## `tuture up`
+## up
 
 Render your tutorial in the browser.
 
 Whether you have initialized with `tuture init` or have just cloned a Tuture tutorial repository, running `tuture up` both suffices.
 
-> This command will invoke `tuture-server` under the hood, which should have been installed together with `tuture-cli`. If `tuture-server` is not available on your machine somehow, you can manually install it with **npm**:
-> ```bash
-> $ npm i -g tuture
-> ```
+::: tip
+This command will invoke `tuture-server` under the hood, which should have been installed together with `tuture-cli`. If `tuture-server` is not available on your machine somehow, you can manually install it with **npm**:
 
-### Preconditions
+```bash
+$ npm i -g tuture
+```
+:::
 
+::: warning
 Current working directory should already be a Git repository with **tuture.yml** present.
+:::
 
 ### Options
 
@@ -84,21 +92,41 @@ Current working directory should already be a Git repository with **tuture.yml**
 
 Output usage information.
 
-## `tuture destroy`
+## destroy
 
 Delete all tuture files.
 
 Tuture will prompt you for confirmation. Type in truthy values (`y`, `yes` and `1`) will delete **.tuture** directory and **tuture.yml**. Type in falsy values (`n`, `no`, and `0`) or simply pressing Enter will cancel this command.
 
-### Preconditions
-
+::: warning
 Current working directory should already be initialized with `tuture init`.
+:::
 
 ### Options
 
 #### `-f`, `--force`
 
 Destroy without confirmation.
+
+#### `-h`, `--help`
+
+Output usage information.
+
+## login
+
+Log in to your [tuture](https://tuture.co) account.
+
+### Options
+
+#### `-h`, `--help`
+
+Output usage information.
+
+## publish
+
+Publish your tutorial to [tuture.co](https://tuture.co).
+
+### Options
 
 #### `-h`, `--help`
 
