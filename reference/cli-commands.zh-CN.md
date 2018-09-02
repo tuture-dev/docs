@@ -19,7 +19,7 @@
 | Tutorial Name?    | `name`    | 必要      | My Awesome Project | 此教程的标题           |
 | Topics           | `topics` | 可选      | -              | 此教程涉及的主题           |
 
-::: tip
+::: tip 提示
 填写 `topics` 可以用任何*非字母数字*字符将多个话题隔开，例如：`javascipt,react,mobx` 或是 `python/tensorflow`。
 :::
 
@@ -53,11 +53,11 @@ Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 - 添加新的提交的 diff 文件
 - 在 tuture.yml 中添加新的步骤
 
-::: note
+::: tip 提示
 这个命令会在每次提交后自动执行。你也可以手动运行此命令。
 :::
 
-::: warning
+::: warning 警告
 当前工作目录应当已经用 `tuture init` 命令初始化完成。
 :::
 
@@ -73,7 +73,7 @@ Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 
 不管你已经用 `tuture init` 命令初始化过，还是刚刚 clone 了一个 Tuture 教程仓库，运行 `tuture up` 都已足够。
 
-::: tip
+::: tip 提示
 这条命令内部会调用 `tuture-server` 命令，这个命令程序应当与 `tuture-cli` 一起安装完成。如果你的机器上不知为何不能使用 `tuture-server`，你可以用 **npm** 手动安装;
 
 ```bash
@@ -81,7 +81,7 @@ $ npm i -g tuture
 ```
 :::
 
-::: warning
+::: warning 警告
 当前工作目录应当是包含 **tuture.yml** 文件的 Git 仓库。
 :::
 
@@ -97,7 +97,7 @@ $ npm i -g tuture
 
 Tuture 会让你确认此次操作。如果输入真值（例如 `y`，`yes` 和 `1`），那么 **.tuture** 目录和 **tuture.yml** 就会被删除。如果输入非真值（例如 `n`，`no` 和 `0`）或者直接按回车，那么就会取消此命令的执行。
 
-::: warning
+::: warning 警告
 当前工作目录应当已经用 `tuture init` 命令初始化完成。
 :::
 

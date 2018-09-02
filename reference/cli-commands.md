@@ -54,7 +54,7 @@ Tuture will do following two things by extracting latest changes from Git logs:
 - Add diff file of new commits
 - Append new steps to **tuture.yml**
 
-::: note
+::: tip NOTE
 This command will be automatically invoked after each commit. You can also run this command manually.
 :::
 
