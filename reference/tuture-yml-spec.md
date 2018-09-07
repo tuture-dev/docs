@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # tuture.yml Specification
 
 **tuture.yml** contains metadata and everything needed to build your Tuture tutorial. Note that each field below can and should be written in the language claimed in the `language` field.
@@ -137,7 +141,7 @@ Each diff file has following fields:
 
 Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
 
-#### `display`
+##### `display`
 
 Whether this file should be displayed in the tutorial.
 

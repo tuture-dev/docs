@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # tuture.yml 详细说明
 
 **tuture.yml** 包含了元数据以及用于实现 Tuture 教程的一切信息。请注意，以下所有字段都可以并且应该用 `language` 字段中声明的语言书写。
@@ -137,7 +141,7 @@ explain:
 
 指向此文件的路径（从教程根目录开始）。Tuture 会为你从 Git 日志中提取此信息。
 
-#### `display`
+##### `display`
 
 此文件是否应当在教程中显示。
 
