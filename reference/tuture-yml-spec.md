@@ -69,7 +69,7 @@ steps:
 
 ## Fields
 
-### `name` <span class="required">required/span>
+### `name` <span class="required">required</span>
 
 Name of your tutorial. By default it's *My Awesome Tutorial*.
 
@@ -90,7 +90,7 @@ Short description of your tutorial.
 
 This helps people quickly discover your tutorial and get interested in it.
 
-### `steps` <span class="required">required/span>
+### `steps` <span class="required">required</span>
 
 Steps for readers to follow.
 
@@ -105,7 +105,7 @@ For commits not intended to be tracked by Tuture, just start commit message with
 
 Here is the specification of a single step.
 
-#### `name` <span class="required">required/span>
+#### `name` <span class="required">required</span>
 
 Name of this step. This will be automatically filled with corresponding commit message. You can rewrite this as you see fit.
 
@@ -137,7 +137,7 @@ Added or changed files in this step.
 
 Each diff file has following fields:
 
-##### `file` <span class="required">required/span>
+##### `file` <span class="required">required</span>
 
 Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
 
