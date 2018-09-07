@@ -65,14 +65,14 @@ steps:
 
 ## 字段
 
-### `name`
+### `name` <span class="required">必填</span>
 
-**[必填]** 教程的名称。默认为 My Awesome Tutorial。
+教程的名称。默认为 My Awesome Tutorial。
 
-**建议**
-
+::: tip 建议
 - 起名字时应当能充分概括教程的内容，并且具有一定的吸引力，例如《用 Python 实现一个自己的 NoSQL 数据库》
 - 不要用空泛的词汇去描述（或者起一个本应是书名的标题），例如《学习 JavaScript》
+:::
 
 ### `topics`
 
@@ -86,33 +86,28 @@ steps:
 
 这能帮助人们更快地发现你的教程并且产生兴趣。
 
-### `steps`
+### `steps` <span class="required">必填</span>
 
-**[必填]** 读者跟着阅读的步骤。
+读者跟着阅读的步骤。
 
-**注意**
-
-- 这个字段应当至少包含一个步骤
-- 每一步与你的 Git 仓库的某一次提交严格对应
-
-**建议**
-
+::: tip 建议
 - 在每一步中，你应当遵循著名的 UNIX 哲学 —— **只做一件事并且把它做好**
 - 为了更好地讲解，请自行调整 diff 文件的顺序
+:::
 
-**贴士**
-
-- 对于不需要被 Tuture 记录的提交，只需在其提交信息开头加上 `tuture:`
+::: tip 提示
+对于不需要被 Tuture 记录的提交，只需在其提交信息开头加上 `tuture:`。
+:::
 
 接下来是每一步的详细说明。
 
-#### `name`
+#### `name` <span class="required">必填</span>
 
-**[必填]** 步骤的名称。这将用对应的提交信息自动填充，你可以酌情进行修改。
+步骤的名称。这将用对应的提交信息自动填充，你可以酌情进行修改。
 
-#### `commit`
+#### `commit` <span class="required">必填</span>
 
-**[必填]** 对应的提交 ID。请**不要**手动修改此字段。
+对应的提交 ID。请**不要**手动修改此字段。
 
 #### `explain`
 
@@ -138,9 +133,9 @@ explain:
 
 每个 diff 文件包括以下字段：
 
-##### `file`
+##### `file` <span class="required">必填</span>
 
-**[必填]** 指向此文件的路径（从教程根目录开始）。Tuture 会为你从 Git 日志中提取此信息。
+指向此文件的路径（从教程根目录开始）。Tuture 会为你从 Git 日志中提取此信息。
 
 #### `display`
 
@@ -153,15 +148,6 @@ tuture.yml
 package-lock.json
 yarn.lock
 ```
-
-##### `section`
-
-指定要展示哪一部分代码。当你改变了一个大文件并且想要拆开来解说时，这一功能非常有用。
-
-你可以通过提供以下字段来选择想要的代码变化：
-
-- `start`：开始的行号。如果没有提供此字段，则为 `1`
-- `end`：结束的行号。**包括此行**。如果没有提供，则将是总行数
 
 ##### `explain`
 
@@ -198,3 +184,14 @@ interface Tuture {
   steps: Step[];
 }
 ```
+
+<style>
+.required {
+  color: white;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: red;
+}
+</style>

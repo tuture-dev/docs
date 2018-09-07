@@ -65,14 +65,14 @@ steps:
 
 ## Fields
 
-### `name`
+### `name` <span class="required">required/span>
 
-**[Required]** Name of your tutorial. By default it's *My Awesome Tutorial*.
+Name of your tutorial. By default it's *My Awesome Tutorial*.
 
-**Advices**
-
+::: tip
 - Try to be informative and attractive, such as *Build Your Own NoSQL Database with Python*
 - Don't use general descriptions (or something like a book title), for instance *Learning JavaScript*.
+:::
 
 ### `topics`
 
@@ -86,29 +86,24 @@ Short description of your tutorial.
 
 This helps people quickly discover your tutorial and get interested in it.
 
-### `steps`
+### `steps` <span class="required">required/span>
 
-**[Required]** Steps for readers to follow.
+Steps for readers to follow.
 
-**Notes**
-
-- This field should contain at least one step
-- Each step corresponds with one commit in your Git repo strictly
-
-**Advices**
-
+::: tip Advice
 - For each step, stick to the renowned and respected UNIX philosiphy - **Do One Thing and Do It Well**
 - Adjust the order of diff files for better illustration
+:::
 
-**Tips**
-
-- For commits not intended to be tracked by Tuture, just start commit message with `tuture:`
+::: tip
+For commits not intended to be tracked by Tuture, just start commit message with `tuture:`.
+:::
 
 Here is the specification of a single step.
 
-#### `name`
+#### `name` <span class="required">required/span>
 
-**[Required]** Name of this step. This will be automatically filled with corresponding commit message. You can rewrite this as you see fit.
+Name of this step. This will be automatically filled with corresponding commit message. You can rewrite this as you see fit.
 
 #### `commit`
 
@@ -138,9 +133,9 @@ Added or changed files in this step.
 
 Each diff file has following fields:
 
-##### `file`
+##### `file` <span class="required">required/span>
 
-**[Required]** Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
+Path to this changed file (from the tutorial root). Tuture will extract this information for you from Git logs.
 
 #### `display`
 
@@ -156,7 +151,7 @@ yarn.lock
 
 ##### `explain`
 
-This is the same as `explain` of a step. You should provide a  **mapping** with optional keys `pre` and `post`.
+This is the same as `explain` of a step. You should provide a **mapping** with optional keys `pre` and `post`.
 
 ## TypeScript Type Definition
 
@@ -189,3 +184,14 @@ interface Tuture {
   steps: Step[];
 }
 ```
+
+<style>
+.required {
+  color: white;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: red;
+}
+</style>
