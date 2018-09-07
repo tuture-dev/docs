@@ -15,7 +15,7 @@ module.exports = {
       { text: 'tuture.co', link: 'https://tuture.co' },
     ],
     sidebar: {
-      '/guide/': ['', 'installation.zh-CN'],
+      '/guide/': ['', 'installation.zh-CN', 'start-writing.zh-CN'],
       '/reference/': ['', 'cli-commands.zh-CN', 'tuture-yml-spec.zh-CN'],
     },
   },
