@@ -2,7 +2,9 @@
 
 **tuture.yml** 包含了元数据以及用于实现 Tuture 教程的一切信息。请注意，以下所有字段都可以并且应该用 `language` 字段中声明的语言书写。
 
-> **强烈建议不要手动修改此文件**。我们推荐直接在浏览器编辑器中书写教程。
+::: warning 警告
+**不要手动修改此文件**。我们推荐直接在浏览器编辑器中书写教程。
+:::
 
 ## 一个完整的例子
 
@@ -61,7 +63,7 @@ steps:
           post: 修改 C 之后的解释文字
 ```
 
-## Fields
+## 字段
 
 ### `name`
 
@@ -175,15 +177,9 @@ interface Explain {
   post?: string;
 }
 
-interface Section {
-  start?: number;
-  end?: number;
-}
-
 interface Diff {
   file: string;
-  display: boolean;
-  section?: Section;
+  display?: boolean;
   explain?: Explain;
 }
 
@@ -197,11 +193,8 @@ interface Step {
 
 interface Tuture {
   name: string;
-  language: string;
-  version: string;
   topics?: string[];
   description?: string;
-  email?: string;
   steps: Step[];
 }
 ```

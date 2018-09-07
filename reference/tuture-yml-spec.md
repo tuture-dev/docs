@@ -2,7 +2,9 @@
 
 **tuture.yml** contains metadata and everything needed to build your Tuture tutorial. Note that each field below can and should be written in the language claimed in the `language` field.
 
-> **It's strongly advised not to edit this file manually.**. We recommend writing tutorials directly in our browser editor.
+::: warning
+**It's strongly advised not to edit this file manually.**. We recommend writing tutorials directly in our browser editor.
+:::
 
 ## A Full Example
 
@@ -152,15 +154,6 @@ package-lock.json
 yarn.lock
 ```
 
-##### `section`
-
-Specify which part of code diff should be displayed. This is quite handy when you have made changes to a large file and want to tear it apart for convenience of explanation.
-
-You can select your desired part of code diff by providing following fields:
-
-- `start`: Line number to start. If not given, this will be `1`
-- `end`: Line number to stop. **This line is included**. If not given, this will be the total number of lines
-
 ##### `explain`
 
 This is the same as `explain` of a step. You should provide a  **mapping** with optional keys `pre` and `post`.
@@ -175,15 +168,9 @@ interface Explain {
   post?: string;
 }
 
-interface Section {
-  start?: number;
-  end?: number;
-}
-
 interface Diff {
   file: string;
   display?: boolean;
-  section?: Section;
   explain?: Explain;
 }
 
@@ -197,11 +184,8 @@ interface Step {
 
 interface Tuture {
   name: string;
-  language: string;
-  version: string;
   topics?: string[];
   description?: string;
-  email?: string;
   steps: Step[];
 }
 ```
