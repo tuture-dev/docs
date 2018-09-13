@@ -14,16 +14,16 @@
 
 3. 询问你以下问题（如果使用了 `-y` 或 `--yes` 则不会询问）：
 
-| 询问              | 对应字段  | 必要/可选 | 默认值             | 含义                   |
-| ----------------- | --------- | --------- | ------------------ | ---------------------- |
-| Tutorial Name?    | `name`    | 必要      | My Awesome Project | 此教程的标题           |
-| Topics           | `topics` | 可选      | -              | 此教程涉及的主题           |
+| 询问           | 对应字段 | 必要/可选 | 默认值             | 含义             |
+| -------------- | -------- | --------- | ------------------ | ---------------- |
+| Tutorial Name? | `name`   | 必要      | My Awesome Project | 此教程的标题     |
+| Topics         | `topics` | 可选      | -                  | 此教程涉及的主题 |
 
 ::: tip 提示
 填写 `topics` 可以用任何*非字母数字*字符将多个话题隔开，例如：`javascipt,react,mobx` 或是 `python/tensorflow`。
 :::
 
-4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](/usage/tuture-yml-spec.zh-CN.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
+4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](tuture-yml-spec.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
 
 5. 在你的 `.gitignore` 中添加以下规则（如果没有会为你创建）：
 
@@ -79,6 +79,7 @@ Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 ```bash
 $ npm i -g tuture
 ```
+
 :::
 
 ::: warning 警告

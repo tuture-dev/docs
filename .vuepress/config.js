@@ -1,4 +1,5 @@
 module.exports = {
+  ga: 'UA-125714435-1',
   head: [
     [
       'link',
@@ -19,6 +20,10 @@ module.exports = {
     },
   },
   themeConfig: {
+    // Generate edit links
+    docsRepo: 'tutureproject/docs',
+    docsBranch: 'master',
+    editLinks: true,
     locales: {
       '/': {
         selectText: 'Languages',
@@ -33,6 +38,7 @@ module.exports = {
           '/guide/': ['', 'installation', 'start-writing'],
           '/reference/': ['', 'cli-commands', 'tuture-yml-spec'],
         },
+        lastUpdated: 'Last Updated',
       },
       '/zh/': {
         selectText: '选择语言',
@@ -47,6 +53,7 @@ module.exports = {
           '/zh/guide/': ['', 'installation', 'start-writing'],
           '/zh/reference/': ['', 'cli-commands', 'tuture-yml-spec'],
         },
+        lastUpdated: '上次更新于',
       },
     },
   },

@@ -45,7 +45,7 @@ $ yarn global add tuture tuture-cli
 
 ## Install From Source
 
-If you want to be exposed to newest features or contribute to tuture or tuture-cli, installing from source is recommended. Clone [tuture](https://github.com/tutureproject/tuture) and [tuture-cli](https://github.com/tutureproject/tuture-cli) from GitHub, `cd` into these repos and install them respectively:
+If you want to be exposed to newest features or contribute to tuture or tuture-cli, installing from source is recommended. Clone [tuture](https://github.com/tutureproject/tuture) and [tuture-cli](https://github.com/tutureproject/cli) from GitHub, `cd` into these repos and install them respectively:
 
 ```bash
 $ npm i -g

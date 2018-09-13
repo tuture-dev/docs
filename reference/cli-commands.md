@@ -14,16 +14,16 @@ This command will go through following procedures:
 
 3. Prompt you to answer following questions (if `-y` or `--yes` option is not given):
 
-| Prompt             | Fields     | Required/Optional | Default            | Meaning                                                      |
-| ------------------ | ---------- | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Tutorial Name?     | `name`     | Required          | My Awesome Tutorial | Title of this tutorial                                       |
-| Topics | `topics` | Optional  | -           | Topics of this tutorial        |
+| Prompt         | Fields   | Required/Optional | Default             | Meaning                 |
+| -------------- | -------- | ----------------- | ------------------- | ----------------------- |
+| Tutorial Name? | `name`   | Required          | My Awesome Tutorial | Title of this tutorial  |
+| Topics         | `topics` | Optional          | -                   | Topics of this tutorial |
 
 ::: tip
 You can separate multiple topics with any non alphanumeric characters, like `javascipt,react,mobx` or `python/tensorflow`.
 :::
 
-4. Create **tuture.yml** which is everything you need to write your tutorial (refer to [tuture.yml Specification](TUTURE_YML_SPEC.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
+4. Create **tuture.yml** which is everything you need to write your tutorial (refer to [tuture.yml Specification](tuture-yml-spec.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
 
 5. Append following rule to your `.gitignore` (Tuture will create one if not exists):
 
@@ -80,6 +80,7 @@ This command will invoke `tuture-server` under the hood, which should have been 
 ```bash
 $ npm i -g tuture
 ```
+
 :::
 
 ::: warning
