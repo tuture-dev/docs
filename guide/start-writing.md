@@ -13,7 +13,7 @@ We'll write a tutorial on HTML5 & CSS respectively.
 
 ## Incremental
 
-### Initialization
+### Initialize
 
 First let's create a new directory for our tutorial, and initialize a Git repo:
 
@@ -65,7 +65,7 @@ Let's have a look at all of them.
   Refer to [tuture.yml Specification](/reference/tuture-yml-spec.md) for meanings of all fields. Don't worry if you are not okay with YAML syntax, since **we don't edit this file directly when writing**.
   :::
 
-### Writing Code
+### Code
 
 It's time for writing some real code.
 
@@ -91,7 +91,7 @@ $ git add .
 $ git commit -m "A dead simple HTML page"
 ```
 
-### Fill in Explanations
+### Explain
 
 Running `tuture up`, and browser editor will pop out:
 
