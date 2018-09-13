@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Start Writing
 
 There are two ways to write Tuture tutorials:

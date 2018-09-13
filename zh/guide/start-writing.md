@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # 开始写作
 
 写 Tuture 教程有两种方式：
