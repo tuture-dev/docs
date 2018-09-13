@@ -1,4 +1,5 @@
 module.exports = {
+  ga: 'UA-125714435-1',
   head: [
     [
       'link',
