@@ -1,7 +1,7 @@
-# 参考
+# Reference
 
-参考部分主要包含以下文档：
+Following documentations are included:
 
-- [CLI 命令](./cli-commands.zh-CN.md) 详细地介绍了 Tuture 命令行工具的所有使用细节。
+- [CLI Commands](./cli-commands.zh-CN.md) covers all details of the Tuture command line tool.
 
-- [tuture.yml 规格说明](./tuture-yml-spec.zh-CN.md) 则是 tuture.yml 文件的规格说明。
+- [tuture.yml Specification](./tuture-yml-spec.zh-CN.md) is the specification for `tuture.yml`.
