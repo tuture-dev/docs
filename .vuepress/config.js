@@ -19,6 +19,10 @@ module.exports = {
     },
   },
   themeConfig: {
+    // Generate edit links
+    docsRepo: 'tutureproject/docs',
+    docsBranch: 'master',
+    editLinks: true,
     locales: {
       '/': {
         selectText: 'Languages',
