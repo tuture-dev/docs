@@ -45,7 +45,7 @@ $ yarn global add tuture tuture-cli
 
 ## 从源代码安装
 
-如果你想要体验最新的功能或是想要为 tuture 和 tuture-cli 贡献源代码，那么推荐从源代码安装。首先请访问 [tuture](https://github.com/tutureproject/tuture) 以及 [tuture-cli](https://github.com/tutureproject/tuture-cli) 的 GitHub 仓库并 clone 到本地，进入仓库后进行安装：
+如果你想要体验最新的功能或是想要为 tuture 和 tuture-cli 贡献源代码，那么推荐从源代码安装。首先请访问 [tuture](https://github.com/tutureproject/tuture) 以及 [tuture-cli](https://github.com/tutureproject/cli) 的 GitHub 仓库并 clone 到本地，进入仓库后进行安装：
 
 ```bash
 $ npm i -g
