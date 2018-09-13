@@ -5,7 +5,7 @@
 - **书写教程的工具**，即 [tuture](https://github.com/tutureproject/tuture) 和 [tuture-cli](https://github.com/tutureproject/cli)，它们能够帮助你在本地轻松地书写高质量的技术教程
 - **分享教程的平台**，即 [tuture.co](https://tuture.co)，它们能够让你分享自己的教程，或是阅读他人的教程
 
-如果你已经迫不及待想要开始使用我们的工具和平台，请直接从[安装](./installation.zh-CN.md)开始阅读。
+如果你已经迫不及待想要开始使用我们的工具和平台，请直接从[安装](./installation.md)开始阅读。
 
 ## 挑战传统的学习方式
 

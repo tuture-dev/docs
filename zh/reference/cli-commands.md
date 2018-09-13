@@ -23,7 +23,7 @@
 填写 `topics` 可以用任何*非字母数字*字符将多个话题隔开，例如：`javascipt,react,mobx` 或是 `python/tensorflow`。
 :::
 
-4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](/usage/tuture-yml-spec.zh-CN.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
+4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](/reference/tuture-yml-spec.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
 
 5. 在你的 `.gitignore` 中添加以下规则（如果没有会为你创建）：
 
