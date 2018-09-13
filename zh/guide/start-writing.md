@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # 开始写作
 
 写 Tuture 教程有两种方式：
@@ -28,7 +32,7 @@ $ tuture init
 ```
 
 ::: tip 提示
-关于所有命令的使用方法，参考 [CLI 命令](/usage/cli-commands.zh-CN.md)。
+关于所有命令的使用方法，参考 [CLI 命令](/zh/reference/cli-commands.md)。
 :::
 
 初始化完成后，你会发现原来的目录里多了下面这些东西：
@@ -52,7 +56,7 @@ $ tuture init
 
 - `.tuture/diff.json` 记录了解析后的用于内部使用的 Git Diff 数据，在渲染教程时需要使用到。
 
-- `tuture.yml` 是 Tuture 教程最重要的文件，它记录了关于教程的所有数据，在写讲解文字也是在此文件中：
+- `tuture.yml` 是 Tuture 教程最重要的文件，它记录了关于教程的所有数据，所有讲解文字也是在此文件中：
 
   ```yaml
   name: 用 HTML5 和 CSS3 写简单的静态页面
@@ -63,7 +67,7 @@ $ tuture init
   ```
 
   ::: tip 提示
-  参考 [tuture.yml 详细说明](/guide/tuture-yml-spec.zh-CN)以了解所有字段的含义。如果你对 YAML 语法不太熟悉也没有关系，因为在写教程的时候我们**不需要直接编辑此文件**。
+  参考 [tuture.yml 详细说明](/zh/reference/tuture-yml-spec.md)以了解所有字段的含义。如果你对 YAML 语法不太熟悉也没有关系，因为在写教程的时候我们**不需要直接编辑此文件**。
   :::
 
 ### 编写代码
@@ -76,11 +80,11 @@ $ tuture init
 <!doctype html>
 <html>
   <head>
-    <title>个人主页</title>
+    <title>个人博客</title>
   </head>
   <body>
-    <h1>欢迎来到我的个人主页！</h1>
-    <p>技术之巅，梦想之旅，我在路上。</p>
+    <h1>技术之巅，梦想之旅</h1>
+    <p>小若燕“雀”，亦可一展宏“图”。在互联网的世界，只要你有闯荡的激情和热血，无论出身，无论背景，终能一飞冲天，实现自身的理想和价值。</p>
   </body>
 </html>
 ```
@@ -104,7 +108,7 @@ $ git commit -m "写一个最简单的 HTML 页面"
 
 1. 教程的简介
 2. 第一步的介绍文字和总结文字
-3. 修改修改 `index.html` 的介绍文字和讲解文字
+3. `index.html` 的介绍文字和讲解文字
 
 我们只需点击各个地方的“编写”按钮，就可以在弹出的 Markdown 编辑框中进行编辑了。编辑完成后点击“确定”按钮后，教程的第一步已经写好了：
 
@@ -140,7 +144,7 @@ p {
 <!doctype html>
 <html>
   <head>
-    <title>个人博客</title>
+    <title>我的第一篇教程</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>

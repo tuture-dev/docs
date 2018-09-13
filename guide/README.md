@@ -1,80 +1,78 @@
-# 介绍
+# Introduction
 
-图雀（Tuture）是一个尝试为 IT 知识和技能的传播加速的解决方案，它由两大部分组成：
+Tuture is the solution attempting to accelerate the dissemination of IT knowledge and skills. It consists of two major components:
 
-- **书写教程的工具**，即 [tuture](https://github.com/tutureproject/tuture) 和 [tuture-cli](https://github.com/tutureproject/cli)，它们能够帮助你在本地轻松地书写高质量的技术教程
-- **分享教程的平台**，即 [tuture.co](https://tuture.co)，它们能够让你分享自己的教程，或是阅读他人的教程
+- **Toolchain to write tutorials**, namely [tuture](https://github.com/tutureproject/tuture) and [tuture-cli](https://github.com/tutureproject/cli), which can help you easily write juicy tech tutorials on your laptop.
+- **Platform to share tutorials**, namely [tuture.co](https://tuture.co), where you can share or read tutorials from you and others
 
-如果你已经迫不及待想要开始使用我们的工具和平台，请直接从[安装](./installation.zh-CN.md)开始阅读。
+If you can't wait to get started with our tools and platforms, jump right into [installation](./installation.md).
 
-## 挑战传统的学习方式
+## Game Changer of Technology Learning
 
-图雀的核心是**基于真实项目和应用场景**的文字教程。
+Tuture is all about **text-based tutorials with real projects and application scenarios inside**.
 
-为什么我们会选择这种方式作为学习和传播技术的首要途径？首先让我们来对比一下其他的学习途径。
+Why this approach as the primary means of learning and spreading technologies? Let's compare the other ways.
 
-**视频**
+**Videos**
 
-视频作为课堂的延续，是很多人所习惯的接受知识的方式，因为它相对而言比较符合认知规律。但是视频作为学习媒介本身就存在以下缺陷：
+As a continuation of the classroom, video is a relatively more cognition-friendly way that many people choose to learn something new. But video as a learning medium itself has the following drawbacks:
 
-- 很难系统地展现知识体系
-- 不便于检索，很难有针对性地获取知识
-- 不能完全适应所有人的学习节奏
+- Difficult to systematically display knowledge systems
+- Inconvenient to retrieve or target desired knowledge
+- Impossible to fully adapt to learning paces of everyone
 
-并且由于制作视频教程非常耗时耗力，对作者的要求非常苛刻，产生了更多局限性：
+The time-consuming and arduous job of producing video tutorials plus demanding requirements of the author bring about more limitations:
 
-- 普遍需要收取高额的费用才能观看，不能惠及大众
-- 更新换代不够及时，很难应对技术浪潮的快速变化
-- 视频教程的总量不够大，因此无法涉及到各个技术的方方面面
+- Typically charge quite a lot
+- Updates are far from timely to react to rapid changes in our field
+- The total amount of video tutorials is not large enough to cover all aspects of each technology
 
-图雀上的教程都是**完全免费**的，并且由于书写方便、制作周期短，产出教程的数量和速度远胜于视频。
+Tutorials on Tuture, however, are **totally free**, and due to the ease of writing and the short production cycle, the number and speed of output tutorials greatly outperform videos.
 
-**书籍**
+**Books**
 
-书籍是人类文明最悠久、最重要的传播途径之一，当然也适用于 IT 技术的传播，但由于以下缺陷（很多都和视频类似），它并不是最合适的选择：
+Books are one of the most time-honored and most important mediums for inheriting human civilization, and of course they apply to the spread of IT technology, but following shortcomings (many are similar to video) demote them from the best choice:
 
-- 学习周期一般都很长，并不适合快速学习和运用
-- 无法跟上 IT 界日新月异的变化，内容很难保持最新
-- 书籍质量参差不齐，错误连篇的糟糕作品不在少数
-- 作者与读者的互动和交流非常有限
+- Learning period is generally very long and not suited for fast-paced learning and practice.
+- Unable to keep up with the ever-changing IT field
+- Qualities of books vary a lot, with bad ones infiltrated with mistakes not in the minority
+- Interaction and communication between the author and readers is quite limited
 
-图雀上大多数教程**只需要十几分钟的时间**即可完成学习，我们会为你精心挑选高质量的教程，你也可以根据教程的收藏次数、浏览量或是自身的兴趣来自由选择。更有趣的是，你可以很方便地与教程的作者或是其他学习者沟通交流。
+Most tutorials on [Tuture](https://tuture.co) **only take roughly ten minutes to complete**. Premium tutorials are carefully curated.  You can explore on your own as well. Freedom of choice. More interestingly, you can easily communicate with the author of the tutorial or other learners.
 
-**官方文档**
+**Official Documentation**
 
-官方文档凭借其权威性和及时性，公认为最重要的资源之一，部分优秀项目的文档更是极佳的学习资源。然而大部分文档都是用英语写的，对于国内不少学习者来说存在语言上的障碍。
+Official documentation is widely recognized as one of the most important resources by virtue of its authority and timeliness, and some do serve as outstanding learning materials. However, most of the documents are written in English, which poses language barriers for many non-native English speakers.
 
-而且大部分项目的官方文档都把重心放在**概念的讲解和 API 的列举**。如果类比语言的学习，那么官方文档便相当于权威词典。很显然，“啃词典”并不是一种理想的学习方式。而所有图雀教程都会**手把手带你搭建一个真实的项目**，在实际运用中快速掌握技术的精髓。
+On the other hand, it focuses too much on **explaining concepts and listing APIs**, which means it's ideal for reference but not perfect for learning. But with hands-on tutorials on Tuture, you can **build a real project** and quickly master the essence of technologies in practical applications.
 
-**技术博客**
+**Tech Blogs**
 
-技术博客的兴起已有很多年，国内外很多乐于分享的极客已经为我们带来了海量的技术博文。我们只需在搜索引擎输入想要学习的内容，就能看到长长的教程清单。
+The explosion of technology blogs has been around for many years, and geeks around the globe have shared myriad of tech blog posts. Just enter what we want to learn in the search engine and an endless list of tutorials are awaiting us.
 
-图雀起源于传统的技术博客，但是却致力于解决一些根本性的问题：
+Tuture originated from conventional tech blogs but is committed to solving some fundamental problems:
 
-- 传统博文的书写具有很大的随意性，导致文章质量差异很大，而图雀试图用一种统一的模式去书写教程（查看[开始书写教程]()）——即基于一个真实的 Git 仓库的提交记录构成教程，确保每一篇教程的可实践性
-- 优质的技术博客散落在互联网的各个角落，很难“一网打尽”，而图雀试图提供一个汇聚优质博文和作者的平台，让学习者不必再苦苦寻找
-- 传统博客的互动非常有限（一般都只有文后评论），而图雀试图提供一个方便且强大的社区功能，让作者和读者的沟通交流更加方便
+- Writing blog posts has too many degrees of freedom, leading to great variance of qualities of tutorials, while Tuture tries to enforce a standard way of writing tutorials (see [Start Writing](./start-writing.md)) based on commits of real Git repositories to ensure the practicality
+- Superior posts are scattered all over the Internet, and it’s impossible to get them all, while Tuture tries to provide a platform that brings them together so that people don’t have to look around any more
+- Interaction is very limited (generally only comments), while Tuture tries to provide a convenient and powerful community to bring authors and readers closer.
 
-## 愉快的写作体验
+## Revolution of Writing Experience
 
-图雀革新了技术教程写作的方式。
+Tuture has revolutionized the way in which tech tutorials are written.
 
-- **直接从真实的代码库中生成**：你的教程会真实地反映代码库。只需从一个 Git 仓库开始，搭建一个有趣的东西，并且写好提交信息，Tuture 就会把所有的精彩带到你的教程中。随着灵感的累积，你的代码库会成长，你的教程也会
-- **自动提取代码变化**：写教程最大的痛点之一便是要手动提取每一步骤中每个文件的代码变化。幸运的是，Tuture 会为你处理这个艰巨且容易出错的任务，因此你只需专注于书写优秀的教程
-- **对着代码写教程**：对着你的代码去写一些东西显然更简单，思路更清晰。搭配完整的 Markdown 编辑功能和一系列方便的工具，书写优质技术文章从未如此有趣
-- **轻松分享你的作品**：分享精神是极客社区历史悠久的传统之一，而 Tuture 完全重视和欣赏这一点。幸运的是，只需一句命令即可发布你的教程（`tuture publish` 然后就搞定了）
+- **Generated directly from a live codebase**: Your tutorial will be a faithful mirror of your code. Just start from a Git repo, build something interesting with nicely-written commit messages, and Tuture will bring all the good things to your tutorial. Your codebase will grow as more inspiration come in, so will your tutorial.
+- **Automatic extraction of code diff**: One of the greatest pain point of writing tutorials is the daunting manual work of collecting code snippets of each changed file for each step. Fortunately, Tuture will handle this boring and error-prone work for you, so you can just focus on writing amazing tuturials.
+- **Edit tutorials alongside your code**: It can be much clearer and easier to write something just next to your code. With full-fleged markdown support and a series of handy tools, writing high-quality tech posts has never been this fun.
+- **Share your work in a breeze**: Sharing is one of the time-honored conventions within the geek community, which is fully valued and appreciated by Tuture. Fortunately, publishing your tutorials is just one command away (`tuture publish` and you are done). Come and visit [tuture.co](https://tuture.co) for tutorials written by you and others!
 
-## 关于“实战”
+## Words on "Learn By Doing"
 
-基于实战的学习（Learn by doing）是一种颇受欢迎的学习模式，Manning 出版社也出版了一系列《XXX in Action》书籍（例如国内广为流传的《机器学习实战》等等），而这也是图雀所一直奉行的理念。
+Learn by doing is a popular learning model, and [Manning Press](https://www.manning.com/) has published a series of *XXX in Action* books (such as *Machine Learning in Action*, etc.), which is also the central tenet of Tuture's faith.
 
-计算机科学本身就是一门实践性极强的学科，死记硬背的学习方式不仅低效，而且会让你逐渐失去兴趣，失去前进的动力。遗憾的是，如今学习资源普遍提供不了理想的实践途径，大多都专注于概念的罗列阐释，使得众多入门者望而生畏。
+Computer science is by all means a highly practical subject. Learning by rote is not only inefficient, but will also gradually strip your interest and motivation to move forward. Unfortunately, today's learning resources generally do not provide the ideal way of practice, and most of them focus on the list of concepts, making many beginners daunting.
 
-而图雀鼓励通过实践学习，亲身参与到项目中，让你不仅能快速得到最正确的知识和经验，更能充分感受这个行业的魅力，而且所获得的成就感也是无法衡量的。
+Tuture encourages you to participate in real world projects by learning in practice to get the most grounded knowledge and experience quickly and grasp the charm of the industry. Last but not least, the sense of accomplishment that comes along is invaluable.
 
-## 为什么叫图雀（Tuture）？
+## Why this name, Tuture?
 
-Tuture 意为 Tutorials from the future（来自未来的教程），我们致力于让教程变得足够“现代化”，足够适应未来，让它们发挥出最大效能。
-
-小若燕“雀”，亦可一展宏“图”。在互联网的世界，只要你有闯荡的激情和热血，无论出身，无论背景，终能一飞冲天，实现自身的理想和价值。
+Tutorials from/of/to the future.
