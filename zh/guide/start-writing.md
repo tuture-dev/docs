@@ -22,6 +22,10 @@ $ mkdir my-awesome-tutorial && cd my-awesome-tutorial
 $ git init
 ```
 
+::: tip 提示
+Windows 用户请在 Git 附带的 **Git Bash** 中运行所有命令。
+:::
+
 接着我们初始化 Tuture 教程，输入 `tuture init` 命令后，回答一系列关于教程基本信息的问题：
 
 ```bash

@@ -8,6 +8,10 @@ Tuture is based on the Git repositories for tutorial writing, so first make sure
 $ git version
 ```
 
+::: tip
+For Windows users, please run all commands in **Git Bash** shipped with Git Windows distributions.
+:::
+
 If you get version info, move on.
 
 ## Node.js
