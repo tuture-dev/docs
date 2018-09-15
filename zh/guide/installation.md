@@ -8,6 +8,10 @@
 $ git version
 ```
 
+::: tip 提示
+Windows 用户请在 Git 附带的 **Git Bash** 中运行所有命令。
+:::
+
 如果能够成功显示版本信息，则说明已安装成功！
 
 ## Node.js

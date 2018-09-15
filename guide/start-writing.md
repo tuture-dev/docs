@@ -22,6 +22,10 @@ $ mkdir my-awesome-tutorial && cd my-awesome-tutorial
 $ git init
 ```
 
+::: tip
+For Windows users, please run all commands in **Git Bash** shipped with Git Windows distributions.
+:::
+
 Then we initialize a Tuture tutorial by running `tuture init` and answering following prompts:
 
 ```bash
