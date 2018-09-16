@@ -9,14 +9,13 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'Tuture',
-      description:
-        'Toolchain and platform for writing and sharing tech tutorials',
+      title: 'Tuture Docs',
+      description: 'Everything you need to know about Tuture.',
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: '图雀',
-      description: '技术教程写作工具和分享平台',
+      title: '图雀文档',
+      description: '关于图雀，你所需要知道的一切',
     },
   },
   themeConfig: {
