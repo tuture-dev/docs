@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Build docker image and push it to registry
+      docker_image:
+        path: '..'
+        name: '{{ image_name }}'
+        tag: '{{ tag }}'
+        push: yes
+- hosts: aliyun
+  become: true
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Pull latest image
+      docker_image:
+        name: '{{ image_name }}'
+        tag: '{{ tag }}'
+    - name: Remove current container
+      docker_container:
+        name: '{{ container_name }}'
+        state: absent
+    - name: Run latest container
+      docker_container:
+        name: '{{ container_name }}'
+        image: '{{ image_name }}:{{ tag }}'
+        ports:
+          - '8000:80'

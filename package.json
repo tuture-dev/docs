@@ -1,13 +1,13 @@
 {
   "name": "tuture-docs",
-  "version": "1.0.0",
+  "private": true,
   "repository": "https://github.com/tutureproject/docs.git",
   "author": "dearonger <wuzhihan_1@163.com>",
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev",
     "build": "vuepress build",
-    "deploy": "./deploy.js"
+    "deploy": "ansible-playbook -v -e tag=$(date +\"%Y%m%d-%H%M%S\") ansible/deploy.yml"
   },
   "devDependencies": {
     "vuepress": "^0.14.1"

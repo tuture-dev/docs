@@ -78,4 +78,10 @@ typings/
 
 # End of https://www.gitignore.io/api/node
 
-deploy.yml
+# Created by https://www.gitignore.io/api/ansible
+
+### Ansible ###
+*.retry
+
+
+# End of https://www.gitignore.io/api/ansible
