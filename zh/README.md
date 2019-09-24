@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://static.tuture.co/images/Logo.svg
+heroImage: /hero.png
 actionText: 立刻开始 →
 actionLink: /zh/guide/
 footer: MIT Licensed | Copyright © 2018-present Tuture Authors

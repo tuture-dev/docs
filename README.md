@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://static.tuture.co/images/Logo.svg
+heroImage: /hero.png
 actionText: Get Started →
 actionLink: /guide/
 footer: MIT Licensed | Copyright © 2018-present Tuture Authors
