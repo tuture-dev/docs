@@ -12,7 +12,7 @@ footer: MIT Licensed | Copyright © 2018-present Tuture Authors
     <p>New to Tuture? Get your feet wet in our <a href="/guide/">Guide</a> section!</p>
   </div>
   <div class="feature">
-    <h2>Reference</h2>
+    <h2>Refer</h2>
     <p>For in-depth info about Tuture, take a look at <a href="/reference/">Reference</a> section.</p>
   </div>
   <div class="feature">
