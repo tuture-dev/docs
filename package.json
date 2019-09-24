@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev",
-    "build": "vuepress build",
-    "deploy": "ansible-playbook -v -e tag=$(date +\"%Y%m%d-%H%M%S\") ansible/deploy.yml"
+    "build": "vuepress build"
   },
   "devDependencies": {
     "vuepress": "^0.14.1"
