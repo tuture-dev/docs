@@ -2,6 +2,7 @@
   "name": "tuture-docs",
   "private": true,
   "repository": "https://github.com/tutureproject/docs.git",
+  "homepage": "https://tutureproject.github.io/docs",
   "author": "dearonger <wuzhihan_1@163.com>",
   "license": "MIT",
   "scripts": {
