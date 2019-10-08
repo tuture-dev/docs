@@ -14,12 +14,12 @@ jobs:
 
 
       - name: build
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-      - run: |
-          npm install
-          npm run build
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+        - run: |
+            npm install
+            npm run build
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.5.0
