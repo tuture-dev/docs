@@ -10,10 +10,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Build and deploy
-        uses: JamesIves/github-pages-deploy-action@master
+
+      - name: build
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: |
+          npm install
+          npm run build
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
         env:
-          ACCESS_TOKEN: ${{ secrets.tuture }}
-          BRANCH: gh-pages
-          FOLDER: .vuepress/dist
-          BUILD_SCRIPT: npm install && npm run build
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./.vuepress/dist
