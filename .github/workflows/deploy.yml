@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          submoudles: true
+          ref: fix-build-error
 
 
       - name: Build and deploy
