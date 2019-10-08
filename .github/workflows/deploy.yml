@@ -2,15 +2,13 @@ name: Tuture docs deploy
 on:
   push:
     branches:
-      - fix-build-error
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          ref: fix-build-error
 
 
       - name: build
