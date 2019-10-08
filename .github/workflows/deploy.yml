@@ -2,13 +2,16 @@ name: Tuture docs deploy
 on:
   push:
     branches:
-      - master
+      - fix-build-error
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        with:
+          submoudles: true
+
 
       - name: Build and deploy
         uses: JamesIves/github-pages-deploy-action@master
