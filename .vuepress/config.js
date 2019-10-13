@@ -10,7 +10,7 @@ module.exports = {
   locales: {
     "/": {
       lang: "en-US",
-      title: "Tuture Docs",
+      title: "Tuture",
       description: "Everything you need to know about Tuture."
     },
     "/zh/": {
