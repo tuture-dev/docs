@@ -5,6 +5,10 @@ module.exports = {
     [
       "link",
       { rel: "shortcut icon", type: "image/x-icon", href: "/favicon.ico" }
+    ],
+    [
+      "script",
+      { "data-ad-client": "ca-pub-9380061057176058", async: true, src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }
     ]
   ],
   locales: {
