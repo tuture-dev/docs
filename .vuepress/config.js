@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/docs",
+  base: "/docs/",
   ga: "UA-125714435-1",
   head: [
     [
