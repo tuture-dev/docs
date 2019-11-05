@@ -7,7 +7,7 @@ sidebarDepth: 3
 **tuture.yml** contains metadata and everything needed to build your Tuture tutorial. Note that each field below can and should be written in the language claimed in the `language` field.
 
 ::: warning
-**It's strongly advised not to edit this file manually.**. We recommend writing tutorials directly in our browser editor.
+**It's strongly advised *not* to edit this file manually except for meta data fields (i.e. all fields but `steps`)**. We recommend writing tutorials directly in our browser editor.
 :::
 
 ## A Full Example
@@ -18,6 +18,18 @@ topics:
   - Topic A
   - Topic B
 description: This is my first tutorial, come and read it!
+created: "2019/7/13 20:46:25"
+updated: "2010/7/20 09:23:10"
+github: https://github.com/username/repository
+splits:
+  - name: Tutorial - Part 1
+    description: This is the first part of my tutorial.
+    start: ae05546
+    end: ae05546
+  - name: Tutorial - Part 2
+    description: This is the second part of my tutorial.
+    start: a45bec1
+    end: a45bec1
 steps:
   - name: Message of commit ae05546
     commit: ae05546
@@ -90,6 +102,44 @@ Short description of your tutorial.
 
 This helps people quickly discover your tutorial and get interested in it.
 
+### `created`
+
+Create time of the tutorial.
+
+### `updated`
+
+Timestamp of last updated.
+
+### `github`
+
+GitHub repository URL of source code for this tutorial.
+
+### `splits`
+
+Splits of this tutorial into multiple parts.
+
+This is especially useful when your tutorial gets lengthy and you want to split it into multiple parts. When running `tuture build`, Tuture will generate separate files for all parts. This field is a list of parts with following fields.
+
+#### `name`
+
+Name of this part.
+
+If not given, Tuture will automatically add an index value to `name` of the entire tutorial. For example, if the global `name` is `Learning Node.js`, then the title of this part will be `Learning Node.js (1)` if the part `name` is not given.
+
+#### `description`
+
+Description of this part.
+
+If specified, the global `description` will be overriden.
+
+#### `start` <span class="required">required</span>
+
+Commit for starting step of this part.
+
+#### `end` <span class="required">required</span>
+
+Commit for ending step of this part.
+
 ### `steps` <span class="required">required</span>
 
 Steps for readers to follow.
@@ -109,9 +159,9 @@ Here is the specification of a single step.
 
 Name of this step. This will be automatically filled with corresponding commit message. You can rewrite this as you see fit.
 
-#### `commit`
+#### `commit` <span class="required">required</span>
 
-**[Required]** Corresponding commit ID. Please **do not** manually edit this field.
+Corresponding commit ID. Please **do not** manually edit this field.
 
 #### `explain`
 
@@ -181,10 +231,20 @@ interface Step {
   diff: Diff[];
 }
 
+export interface Split {
+  start: string;
+  end: string;
+  name?: string;
+  description?: string;
+}
+
 interface Tuture {
   name: string;
   topics?: string[];
   description?: string;
+  splits?: Split[];
+  created?: Date;
+  updated?: Date;
   steps: Step[];
 }
 ```

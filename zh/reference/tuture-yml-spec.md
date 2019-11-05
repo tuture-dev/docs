@@ -7,7 +7,7 @@ sidebarDepth: 3
 **tuture.yml** 包含了元数据以及用于实现 Tuture 教程的一切信息。请注意，以下所有字段都可以并且应该用 `language` 字段中声明的语言书写。
 
 ::: warning 警告
-**不要手动修改此文件**。我们推荐直接在浏览器编辑器中书写教程。
+**除了修改元数据字段（即除 `steps` 以外），强烈建议不要手动编辑此文件**。我们推荐直接在浏览器编辑器中书写教程。
 :::
 
 ## 一个完整的例子
@@ -18,6 +18,18 @@ topics:
   - JavaScript
   - Express
 description: 这是我写的第一篇教程，快来看看吧
+created: "2019/7/13 20:46:25"
+updated: "2010/7/20 09:23:10"
+github: https://github.com/username/repository
+splits:
+  - name: 教程名称（1）
+    description: 这是教程第一部分的描述
+    start: ae05546
+    end: ae05546
+  - name: 教程名称（2）
+    description: 这是教程第二部分的描述
+    start: a45bec1
+    end: a45bec1
 steps:
   - name: ae05546 的提交信息
     commit: ae05546
@@ -89,6 +101,42 @@ steps:
 教程的简短描述。
 
 这能帮助人们更快地发现你的教程并且产生兴趣。
+
+### `created`
+
+教程创建时间。
+
+### `updated`
+
+教程上次更新时间。
+
+### `github`
+
+教程源代码的 GitHub 仓库 URL。
+
+### `splits`
+
+教程的拆分定义。当你的教程变得很长，并且想要拆分成多个部分，这一功能十分有用。当运行 `tuture build` 命令时，图雀会为每一部分生成对应的内容。这个字段是一个数组，每个数组元素由以下字段组成。
+
+#### `name`
+
+此部分的名称。
+
+如果没有定义，图雀会自动在整个教程的 `name` 字段的基础上添加索引序号。例如，如果全局的 `name` 是“学习 Node.js”，那么这一部分的标题将是“学习 Node.js (1)”。
+
+#### `description`
+
+此部分的描述。
+
+如果给出定义，那么全局的 `description` 将被覆盖。
+
+#### `start` <span class="required">required</span>
+
+这一部分的起始提交 ID。
+
+#### `end` <span class="required">required</span>
+
+这一部分的终止提交 ID。
 
 ### `steps` <span class="required">必填</span>
 
@@ -181,10 +229,20 @@ interface Step {
   diff: Diff[];
 }
 
+export interface Split {
+  start: string;
+  end: string;
+  name?: string;
+  description?: string;
+}
+
 interface Tuture {
   name: string;
   topics?: string[];
   description?: string;
+  splits?: Split[];
+  created?: Date;
+  updated?: Date;
   steps: Step[];
 }
 ```
