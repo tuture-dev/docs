@@ -3,7 +3,6 @@
   "private": true,
   "repository": "https://github.com/tuture-dev/docs.git",
   "homepage": "https://docs.tuture.co",
-  "author": "dearonger <wuzhihan_1@163.com>",
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev",
@@ -11,10 +10,8 @@
     "deploy": "node deploy.js"
   },
   "devDependencies": {
-    "vuepress": "^0.14.1"
-  },
-  "dependencies": {
     "cos-nodejs-sdk-v5": "^2.5.14",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "vuepress": "^1.2.0"
   }
 }
