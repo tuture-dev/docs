@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # tuture.yml 详细说明
 
-**tuture.yml** 包含了元数据以及用于实现 Tuture 教程的一切信息。请注意，以下所有字段都可以并且应该用 `language` 字段中声明的语言书写。
+**tuture.yml** 包含了元数据以及用于实现 Tuture 教程的一切信息。
 
 ::: warning 警告
 **除了修改元数据字段（即除 `steps` 以外），强烈建议不要手动编辑此文件**。我们推荐直接在浏览器编辑器中书写教程。
