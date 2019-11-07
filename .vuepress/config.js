@@ -44,6 +44,7 @@ module.exports = {
             'installation',
             'start-writing',
             'sharing',
+            'configuration',
             'advanced',
           ],
           '/reference/': ['', 'cli-commands', 'tuture-yml-spec'],
