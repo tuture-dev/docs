@@ -10,7 +10,7 @@ This command will go through following procedures:
 
 1. Check if Git is installed on your machine. If not, Tuture will stop and output error message.
 
-2. Check if current working directory is a Git repo. If you are not in a Git repo and `-y` option is not given, Tuture will ask for confirmation on whether you would like to initialize one. If your answer is no, Tuture will abort this command. Otherwise, Tuture will run `git init` in cwd and move on.
+2. Check if current working directory is a Git repo. If you are not in a Git repo and `-y` option is not given, Tuture will ask for confirmation on whether you would like to initialize one. If your answer is no, Tuture will abort this command. Otherwise, Tuture will run `git init` in current working directory and move on.
 
 3. Prompt you to answer following questions (if `-y` or `--yes` option is not given):
 
@@ -20,10 +20,10 @@ This command will go through following procedures:
 | Topics         | `topics` | Optional          | -                   | Topics of this tutorial |
 
 ::: tip
-You can separate multiple topics with any non alphanumeric characters, like `javascipt,react,mobx` or `python/tensorflow`.
+You can separate multiple topics with any non alphanumeric characters, like `JavaScipt,React,Mobx` or `Python/TensorFlow`.
 :::
 
-4. Create **tuture.yml** which is everything you need to write your tutorial (refer to [tuture.yml Specification](tuture-yml-spec.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
+4. Create **tuture.yml** for storing your tutorial (refer to [tuture.yml Specification](tuture-yml-spec.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
 
 5. Append following rule to your `.gitignore` (Tuture will create one if not exists):
 
@@ -74,20 +74,15 @@ Render your tutorial in the browser.
 
 Whether you have initialized with `tuture init` or have just cloned a Tuture tutorial repository, running `tuture up` both suffices.
 
-::: tip
-This command will invoke `tuture-server` under the hood, which should have been installed together with `tuture-cli`. If `tuture-server` is not available on your machine somehow, you can manually install it with **npm**:
-
-```bash
-$ npm i -g tuture
-```
-
-:::
-
 ::: warning
 Current working directory should already be a Git repository with **tuture.yml** present.
 :::
 
 ### Options
+
+#### `-p`, `--port`
+
+The port to use for spinning up editor server.
 
 #### `-h`, `--help`
 
@@ -113,22 +108,34 @@ Destroy without confirmation.
 
 Output usage information.
 
-## login
+## build
 
-Log in to your [tuture](https://tuture.co) account.
+Build the tutorial into a markdown document.
 
 ### Options
+
+#### `-o`, `--output`
+
+Path to output file.
+
+#### `--assetsPath`
+
+Path to assets root directory. This is used for replacing paths of all image assets in the markdown document. The assets root specified will be created relative to the output file.
+
+#### `--hexo`
+
+[Hexo](https://hexo.io) post building mode. This will add Hexo [front-matters](https://hexo.io/docs/front-matter) with meta data specified in **tuture.yml**.
+
+::: warning
+This feature is **experimental** and currently only used for building posts in [Tuture Hub](https://tuture.co).
+:::
 
 #### `-h`, `--help`
 
 Output usage information.
 
-## publish
+## help
 
-Publish your tutorial to [tuture.co](https://tuture.co).
+Print usage information for any command.
 
-### Options
-
-#### `-h`, `--help`
-
-Output usage information.
+For example, `tuture help` will print usage of all sub-commands, and `tuture build <subcommand>` will output usage for a given `<subcommand>`.

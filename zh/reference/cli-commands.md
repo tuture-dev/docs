@@ -20,15 +20,16 @@
 | Topics         | `topics` | 可选      | -                  | 此教程涉及的主题 |
 
 ::: tip 提示
-填写 `topics` 可以用任何*非字母数字*字符将多个话题隔开，例如：`javascipt,react,mobx` 或是 `python/tensorflow`。
+填写 `topics` 可以用任何*非字母数字*字符将多个话题隔开，例如：`JavaScipt,React,Mobx` 或是 `Python/TensorFlow`。
 :::
 
-4. 创建写教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](tuture-yml-spec.md)）和用于存放 Tuture 所需的 diff 数据 **.tuture** 目录。
+4. 创建存储教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](tuture-yml-spec.md)）和用于存放所需的 diff 数据 **.tuture** 目录。
 
 5. 在你的 `.gitignore` 中添加以下规则（如果没有会为你创建）：
 
 ```
 # Tuture supporting files
+
 .tuture
 ```
 
@@ -73,20 +74,15 @@ Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 
 不管你已经用 `tuture init` 命令初始化过，还是刚刚 clone 了一个 Tuture 教程仓库，运行 `tuture up` 都已足够。
 
-::: tip 提示
-这条命令内部会调用 `tuture-server` 命令，这个命令程序应当与 `tuture-cli` 一起安装完成。如果你的机器上不知为何不能使用 `tuture-server`，你可以用 **npm** 手动安装;
-
-```bash
-$ npm i -g tuture
-```
-
-:::
-
 ::: warning 警告
 当前工作目录应当是包含 **tuture.yml** 文件的 Git 仓库。
 :::
 
 ### 选项
+
+#### `-p`, `--port`
+
+用于打开编辑器服务器的端口。
 
 #### `-h`, `--help`
 
@@ -112,22 +108,36 @@ Tuture 会让你确认此次操作。如果输入真值（例如 `y`，`yes` 和
 
 显示使用方法信息。
 
-## login
+## build
 
-登录[图雀](https://tuture.co)帐号。
+将教程构建成 Markdown 文档。
 
 ### 选项
+
+#### `-o`, `--output`
+
+输出文件的路径。
+
+#### `--assetsPath`
+
+Path to assets root directory. This is used for replacing paths of all image assets in the markdown document. The assets root specified will be created relative to the output file.
+
+图片资源根目录路径。这个参数用于替换 Markdown 文档中所有图片的路径，并且指定的资源目录会被创建。
+
+#### `--hexo`
+
+[Hexo](https://hexo.io) 博客构建模式。 将会用 tuture.yml 中指定的元数据添加 Hexo [front-matters](https://hexo.io/docs/front-matter)。
+
+::: warning 警告
+这项功能处于**试验阶段**，并且当前仅用来构建[图雀社区](https://tuture.co)的文章。
+:::
 
 #### `-h`, `--help`
 
 显示使用方法信息。
 
-## publish
+## help
 
-发布教程到[图雀平台](https://tuture.co)。
+显示任何命令的使用方法。
 
-### 选项
-
-#### `-h`, `--help`
-
-显示使用方法信息。
+例如，`tuture build` 会打印所有子命令的使用方法，`tuture build <subcommand>` 会打印子命令 `<subcommand>` 的使用方法。
