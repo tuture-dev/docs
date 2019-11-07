@@ -1,22 +1,22 @@
 ---
 home: true
 heroImage: /hero.png
-actionText: Get Started →
+actionText: 立刻开始 →
 actionLink: /guide/
 footer: MIT Licensed | Copyright © 2018-present Tuture Authors
 ---
 
 <div class="features">
   <div class="feature">
-    <h2>Guide</h2>
-    <p>New to Tuture? Get your feet wet in our <a href="/guide/">Guide</a> section!</p>
+    <h2>指南</h2>
+    <p>刚接触图雀？阅读<a href="/guide/">指南</a>部分来快速入门！</p>
   </div>
   <div class="feature">
-    <h2>Reference</h2>
-    <p>For in-depth info about Tuture, take a look at <a href="/reference/">Reference</a> section.</p>
+    <h2>参考</h2>
+    <p>深入了解图雀的细节，请查看<a href="/reference/">参考</a>部分。</p>
   </div>
   <div class="feature">
-    <h2>Contribute!</h2>
-    <p>Want to get involved? Read <a href="/contribute/">Contribute</a> docs before moving on!</p>
+    <h2>贡献</h2>
+    <p>想要参与到项目中来？请先看一下<a href="/contribute/">贡献</a>部分的文档！</p>
   </div>
 </div>

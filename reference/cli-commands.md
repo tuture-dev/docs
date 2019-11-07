@@ -1,31 +1,31 @@
-# CLI Commands
+# CLI 命令
 
-Following commands assume that you are working on a Git repo. If you does not have Git on your machine, please download it from [here](https://git-scm.com/downloads).
+以下命令假定你处在一个 Git 仓库中。如果你还没有安装 Git，请从[此处](https://git-scm.com/downloads)下载。
 
 ## init
 
-Initialize a Tuture tutorial.
+初始化一个 Tuture 教程。
 
-This command will go through following procedures:
+此命令会执行以下步骤：
 
-1. Check if Git is installed on your machine. If not, Tuture will stop and output error message.
+1. 检查 Git 是否在本机安装。如果没有安装，Tuture 会停止运行并显示出错信息。
 
-2. Check if current working directory is a Git repo. If you are not in a Git repo and `-y` option is not given, Tuture will ask for confirmation on whether you would like to initialize one. If your answer is no, Tuture will abort this command. Otherwise, Tuture will run `git init` in cwd and move on.
+2. 检查当前所在目录是否为 Git 仓库。如果不是 Git 仓库并且没有提供 `-y` 选项，Tuture 就会询问是否确认要将当前目录初始化为 Git 仓库。如果你回答了否，Tuture 会终止运行。否则 Tuture 会执行 `git init` 命令并继续执行。
 
-3. Prompt you to answer following questions (if `-y` or `--yes` option is not given):
+3. 询问你以下问题（如果使用了 `-y` 或 `--yes` 则不会询问）：
 
-| Prompt         | Fields   | Required/Optional | Default             | Meaning                 |
-| -------------- | -------- | ----------------- | ------------------- | ----------------------- |
-| Tutorial Name? | `name`   | Required          | My Awesome Tutorial | Title of this tutorial  |
-| Topics         | `topics` | Optional          | -                   | Topics of this tutorial |
+| 询问           | 对应字段 | 必要/可选 | 默认值             | 含义             |
+| -------------- | -------- | --------- | ------------------ | ---------------- |
+| Tutorial Name? | `name`   | 必要      | My Awesome Project | 此教程的标题     |
+| Topics         | `topics` | 可选      | -                  | 此教程涉及的主题 |
 
-::: tip
-You can separate multiple topics with any non alphanumeric characters, like `javascipt,react,mobx` or `python/tensorflow`.
+::: tip 提示
+填写 `topics` 可以用任何*非字母数字*字符将多个话题隔开，例如：`JavaScipt,React,Mobx` 或是 `Python/TensorFlow`。
 :::
 
-4. Create **tuture.yml** which is everything you need to write your tutorial (refer to [tuture.yml Specification](tuture-yml-spec.md) for detailed information), and **.tuture** directory which houses diff data of each commit.
+4. 创建存储教程所需的 **tuture.yml** 文件（详细说明请参考 [tuture.yml 规格说明](tuture-yml-spec.md)）和用于存放所需的 diff 数据 **.tuture** 目录。
 
-5. Append following rule to your `.gitignore` (Tuture will create one if not exists):
+5. 在你的 `.gitignore` 中添加以下规则（如果没有会为你创建）：
 
 ```
 # Tuture supporting files
@@ -33,102 +33,111 @@ You can separate multiple topics with any non alphanumeric characters, like `jav
 .tuture
 ```
 
-6. Add Git post-commit hook for calling `tuture reload` after each commit (create one if not exists).
+6. 增加 Git post-commit 钩子（如果没有会为你创建），用于每次提交后触发 `tuture reload`。
 
-### Options
+### 选项
 
 #### `-y`, `--yes`
 
-Do not ask for prompts and fill in default values.
+不要询问任何问题，全部用默认值填充。
 
 #### `-h`, `--help`
 
-Output usage information.
+显示使用方法信息。
 
 ## reload
 
-Update Tuture files to the latest repo.
+将 Tuture 文件更新到与仓库最新状态同步。
 
-Tuture will do following two things by extracting latest changes from Git logs:
+Tuture 通过从 Git 日志中提取最新的变化来实现以下两件事：
 
-- Add diff file of new commits
-- Append new steps to **tuture.yml**
+- 添加新的提交的 diff 文件
+- 在 tuture.yml 中添加新的步骤
 
-::: tip NOTE
-This command will be automatically invoked after each commit. You can also run this command manually.
+::: tip 提示
+这个命令会在每次提交后自动执行。你也可以手动运行此命令。
 :::
 
-::: warning
-Current working directory should already be initialized with `tuture init`.
+::: warning 警告
+当前工作目录应当已经用 `tuture init` 命令初始化完成。
 :::
 
-### Options
+### 选项
 
 #### `-h`, `--help`
 
-Output usage information.
+显示使用方法信息。
 
 ## up
 
-Render your tutorial in the browser.
+在浏览器中渲染教程。
 
-Whether you have initialized with `tuture init` or have just cloned a Tuture tutorial repository, running `tuture up` both suffices.
+不管你已经用 `tuture init` 命令初始化过，还是刚刚 clone 了一个 Tuture 教程仓库，运行 `tuture up` 都已足够。
 
-::: tip
-This command will invoke `tuture-server` under the hood, which should have been installed together with `tuture-cli`. If `tuture-server` is not available on your machine somehow, you can manually install it with **npm**:
-
-```bash
-$ npm i -g tuture
-```
-
+::: warning 警告
+当前工作目录应当是包含 **tuture.yml** 文件的 Git 仓库。
 :::
 
-::: warning
-Current working directory should already be a Git repository with **tuture.yml** present.
-:::
+### 选项
 
-### Options
+#### `-p`, `--port`
+
+用于打开编辑器服务器的端口。
 
 #### `-h`, `--help`
 
-Output usage information.
+显示使用方法信息。
 
 ## destroy
 
-Delete all tuture files.
+删除所有 Tuture 相关文件。
 
-Tuture will prompt you for confirmation. Type in truthy values (`y`, `yes` and `1`) will delete **.tuture** directory and **tuture.yml**. Type in falsy values (`n`, `no`, and `0`) or simply pressing Enter will cancel this command.
+Tuture 会让你确认此次操作。如果输入真值（例如 `y`，`yes` 和 `1`），那么 **.tuture** 目录和 **tuture.yml** 就会被删除。如果输入非真值（例如 `n`，`no` 和 `0`）或者直接按回车，那么就会取消此命令的执行。
 
-::: warning
-Current working directory should already be initialized with `tuture init`.
+::: warning 警告
+当前工作目录应当已经用 `tuture init` 命令初始化完成。
 :::
 
-### Options
+### 选项
 
 #### `-f`, `--force`
 
-Destroy without confirmation.
+无需确认，直接强行删除。
 
 #### `-h`, `--help`
 
-Output usage information.
+显示使用方法信息。
 
-## login
+## build
 
-Log in to your [tuture](https://tuture.co) account.
+将教程构建成 Markdown 文档。
 
-### Options
+### 选项
+
+#### `-o`, `--output`
+
+输出文件的路径。
+
+#### `--assetsPath`
+
+Path to assets root directory. This is used for replacing paths of all image assets in the markdown document. The assets root specified will be created relative to the output file.
+
+图片资源根目录路径。这个参数用于替换 Markdown 文档中所有图片的路径，并且指定的资源目录会被创建。
+
+#### `--hexo`
+
+[Hexo](https://hexo.io) 博客构建模式。 将会用 tuture.yml 中指定的元数据添加 Hexo [front-matters](https://hexo.io/docs/front-matter)。
+
+::: warning 警告
+这项功能处于**试验阶段**，并且当前仅用来构建[图雀社区](https://tuture.co)的文章。
+:::
 
 #### `-h`, `--help`
 
-Output usage information.
+显示使用方法信息。
 
-## publish
+## help
 
-Publish your tutorial to [tuture.co](https://tuture.co).
+显示任何命令的使用方法。
 
-### Options
-
-#### `-h`, `--help`
-
-Output usage information.
+例如，`tuture build` 会打印所有子命令的使用方法，`tuture build <subcommand>` 会打印子命令 `<subcommand>` 的使用方法。

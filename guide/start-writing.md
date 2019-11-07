@@ -2,44 +2,46 @@
 sidebarDepth: 3
 ---
 
-# Start Writing
+# 开始写作
 
-There are two ways to write Tuture tutorials:
+写 Tuture 教程有两种方式：
 
-1. **Incremental**: building the project along with explaining
-2. **One-off**: finish the project and fill in all explanations
+1. **渐增式（Incremental)**：边写代码边写讲解
+2. **瀑布式（One-off）**：将代码写完后（或者从已有的仓库开始），再写完所有讲解
 
-We'll write a tutorial on HTML5 & CSS respectively.
+我们分别用两种方式写一篇 HTML5 & CSS3 教程。
 
-## Incremental
+## 渐增式
 
-### Initialize
+### 初始化教程
 
-First let's create a new directory for our tutorial, and initialize a Git repo:
+首先我们创建一个目录用于写教程，并初始化 Git 仓库：
 
 ```bash
 $ mkdir my-awesome-tutorial && cd my-awesome-tutorial
 $ git init
 ```
 
-::: tip
-For Windows users, please run all commands in **Git Bash** shipped with Git Windows distributions.
+::: tip 提示
+Windows 用户请在 Git 附带的 **Git Bash** 中运行所有命令。
 :::
 
-Then we initialize a Tuture tutorial by running `tuture init` and answering following prompts:
+接着我们初始化 Tuture 教程，输入 `tuture init` 命令后，回答一系列关于教程基本信息的问题：
 
 ```bash
 $ tuture init
-✔ Tutorial Name … Building a Static Site with HTML and CSS
-✔ Topics … html, css
-✔  success   tuture.yml is created!
+? Tutorial Name 用 HTML 和 CSS 写简单的静态页面
+? Topics HTML,CSS
+info .gitignore file created.
+info Git post-commit hook added.
+success Tuture tutorial has been initialized!
 ```
 
-::: tip
-Refer to [CLI Commands](/reference/cli-commands.md) for usage of all commands.
+::: tip 提示
+关于所有命令的使用方法，参考 [CLI 命令](/reference/cli-commands.md)。
 :::
 
-After initialization, you'll find those new files:
+初始化完成后，你会发现原来的目录里多了下面这些东西：
 
 ```
 .
@@ -49,77 +51,82 @@ After initialization, you'll find those new files:
 └── tuture.yml
 ```
 
-Let's have a look at all of them.
+下面分别介绍一下新增加的文件：
 
-- `.gitignore`, which is quite familiar to Git users. Tuture automatically adds a rule to ignore `.tuture` directory.
+- `.gitignore`，这个文件大家都很熟悉了。Tuture 自动添加了忽略 `.tuture` 目录的规则，这里我们再添加一些 Node 项目的规则：
 
-- `.tuture/diff.json` is a record of parsed Git diff data for internal use.
+  ```
+  .tuture
+  node_modules
+  ```
 
-- `tuture.yml` is the key file which keeps track of everything about this tutorial:
+- `.tuture/diff.json` 记录了解析后的用于内部使用的 Git Diff 数据，在渲染教程时需要使用到。
+
+- `tuture.yml` 是 Tuture 教程最重要的文件，它记录了关于教程的所有数据，所有讲解文字也是在此文件中：
 
   ```yaml
-  name: Building a Static Site with HTML and CSS
+  name: 用 HTML 和 CSS 写简单的静态页面
   topics:
-    - html
-    - css
+    - HTML
+    - CSS
   steps: []
   ```
 
-  ::: tip
-  Refer to [tuture.yml Specification](/reference/tuture-yml-spec.md) for meanings of all fields. Don't worry if you are not okay with YAML syntax, since **we don't edit this file directly when writing**.
+  ::: tip 提示
+  参考 [tuture.yml 详细说明](/reference/tuture-yml-spec.md)以了解所有字段的含义。如果你对 YAML 语法不太熟悉也没有关系，因为实际写教程的时候我们基本上不需要编辑此文件。
   :::
 
-### Code
+### 编写代码
 
-It's time for writing some real code.
+接下来便是写教程项目的代码了。
 
-Add `index.html` as below:
+我们添加 `index.html`：
 
 ```html
 <!doctype html>
 <html>
   <head>
-    <title>My First Tutorial</title>
+    <title>个人博客</title>
   </head>
   <body>
-    <h1>Welcome to my site!</h1>
-    <p>Always an appealing aim ahead.</p>
+    <h1>技术之巅，梦想之旅</h1>
+    <p>小若燕“雀”，亦可一展宏“图”。在互联网的世界，只要你有闯荡的激情和热血，无论出身，无论背景，终能一飞冲天，实现自身的理想和价值。</p>
   </body>
 </html>
 ```
 
-Make the first commit:
+提交第一步的代码：
 
 ```bash
 $ git add .
-$ git commit -m "A dead simple HTML page"
+$ git commit -m "写一个最简单的 HTML 页面"
 ```
 
-### Explain
+### 填写讲解
 
-Running `tuture up`, and browser editor will pop out:
+运行 `tuture up` 命令，会弹出浏览器编辑页面：
 
-![](../assets/tuture-up.png)
+![](../assets/s1.png)
 
-We can see that tuture has managed the tutorial structure for us and list code diff previously committed.
+可以看到，tuture 已经帮我们整理好了教程的结构，并且把刚才提交的代码变化罗列了出来。
 
-Let's edit following three places:
+接下来我们要编辑三处地方：
 
-1. Short description of our tutorial
-2. Introduction and sumup of our first step
-3. Introduction and explanation on `index.html`
+1. 教程的简介
+2. 第一步的介绍文字和总结文字
+3. `index.html` 的介绍文字和讲解文字
 
-Press **Edit** button, and you can start editing in the markdown editor. After you are finished, click on **Confirm** button. Now we have our first step:
+我们只需点击各个地方的“编写”按钮，就可以在弹出的 Markdown 编辑框中进行编辑了。编辑完成后点击“确定”按钮后，教程的第一步已经写好了：
 
-![](../assets/tuture-up-edit.png)
+![](../assets/s2.png)
 
-Within red box on the right is **Step Filelist**, which is a listing of all modified files in this step as the name suggests. If the file name is black (like `index.html` above), then this file will be displayed, or if the file name is greyed out (like `.gitignore` and `tuture.yml`), it'll be  hidden. Click on the "Eye" button to toggle display/hide status.
+右边红色的框中是**步骤文件目录**，列出了这一步骤中的所有发生修改的文件。黑色的文件名表示这一文件将在教程中展示（例如上面的 index.html），而灰色的文件名则表示此文件被隐藏（例如 .gitignore 和 tuture.yml）。点击每个文件名框右侧的“眼睛”按钮即可调整显示/隐藏状态。
 
-### Iterate
+### 反复迭代
 
-Let's move on to the next step: Add CSS Styles
+我们开始编写下一步骤：添加 CSS 样式表。
 
-Create a `style.css` file:
+创建 `style.css` 文件如下：
 
 ```css
 body {
@@ -137,52 +144,52 @@ p {
 }
 ```
 
-Change `index.html` as below:
+修改 `index.html` 如下：
 
 ```html
 <!doctype html>
 <html>
   <head>
-    <title>My First Tutorial</title>
+    <title>个人博客</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Welcome to my site!</h1>
-    <p>Always an appealing aim ahead.</p>
+    <h1>技术之巅，梦想之旅</h1>
+    <p>小若燕“雀”，亦可一展宏“图”。在互联网的世界，只要你有闯荡的激情和热血，无论出身，无论背景，终能一飞冲天，实现自身的理想和价值。</p>
   </body>
 </html>
 ```
 
-Save and commit:
+保存并提交代码：
 
 ```bash
 $ git add .
-$ git commit -m "Add CSS Styles"
+$ git commit -m "添加 CSS 样式表"
 ```
 
-Back to our browser editor, and you'll find the second step is added by tuture:
+回到浏览器编辑界面，会发现第二步骤已经自动添加了进去：
 
-![](../assets/tuture-up-edit2.png)
+![](../assets/s3.png)
 
-We can see that Tuture has marked the code diff of `index.html` quite clear, which enables readers to easily follow and code as they read.
+可以看到 Tuture 为我们把 `index.html` 的变化非常清晰地标注了出来，这能够让阅读教程的读者轻松地跟上你的节奏，边看边亲身实践。
 
-We hope to explain `style.css` before `index.html`. This can be done by Step Filelist mentioned above - drag and drop items to adjust the display order.
+我们希望先讲解 `style.css` 再讲解 `index.html`，这可以通过上面提到的步骤文件目录来调整——通过拖动文件名框来调整展示的顺序。
 
-After that, let's begin writing explanations on the second step. In the end, we want to add a screenshot of our site by clicking on "Insert Image" button of markdown editor (or simply pasting):
+调整好顺序后，我们继续编写第二步的讲解文字。在第二步的最后，我们希望插入最后写好的页面的展示图片。点击 Markdown 编辑器右上角的“插入图片”按钮，或是直接将图片粘贴到编辑区域中，即可完成图片的插入：
 
-![](../assets/insert-image.png)
+![](../assets/s4.png)
 
-Click on "Preview" tab of markdown editor, and here is our screenshot!
+点击 Markdown 编辑器的预览按钮，就能看到我们刚才插入的图片了！
 
-![](../assets/preview-image.png)
+![](../assets/s5.png)
 
-So our radically short tutorial is finished. Click on "Save" button, and enjoy our work!
+这样我们就完成了一个非常简短的教程。点击右下角的“保存”按钮，就可以欣赏我们的作品了！
 
-## One-off
+## 瀑布式
 
-One-off writing is well-suited for following situations:
+“一步式”的写作适用于以下情形：
 
-- Writing tutorials and projects simultaneously hinders your thinking
-- You have a working codebase and want to turn it into a tutorial
+- 你觉得一边写教程一边写项目会阻碍思考
+- 你之前已经完成了一个项目，打算把这个项目转换成教程
 
-Enter the project root, initialize Tuture tutorial with `tuture init`. Then execute `tuture up` and you can see the tutorial skeleton generated by Tuture. All you need to do is writing explanation for changes within each step, and your tutorial is completed.
+进入到项目根目录，执行 `tuture init` 命令，初始化 Tuture 教程。然后再执行 `tuture up`，就可以看到 Tuture 生成的教程骨架，你只需对着代码变化写一些讲解文字，一篇教程就完成了。
