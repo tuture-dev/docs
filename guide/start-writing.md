@@ -30,13 +30,15 @@ Windows 用户请在 Git 附带的 **Git Bash** 中运行所有命令。
 
 ```bash
 $ tuture init
-✔ Tutorial Name … 用 HTML 和 CSS 写简单的静态页面
-✔ Topics … html, css
-✔  success   tuture.yml is created!
+? Tutorial Name 用 HTML 和 CSS 写简单的静态页面
+? Topics HTML,CSS
+info .gitignore file created.
+info Git post-commit hook added.
+success Tuture tutorial has been initialized!
 ```
 
 ::: tip 提示
-关于所有命令的使用方法，参考 [CLI 命令](/zh/reference/cli-commands.md)。
+关于所有命令的使用方法，参考 [CLI 命令](/reference/cli-commands.md)。
 :::
 
 初始化完成后，你会发现原来的目录里多了下面这些东西：
@@ -63,15 +65,15 @@ $ tuture init
 - `tuture.yml` 是 Tuture 教程最重要的文件，它记录了关于教程的所有数据，所有讲解文字也是在此文件中：
 
   ```yaml
-  name: 用 HTML5 和 CSS3 写简单的静态页面
+  name: 用 HTML 和 CSS 写简单的静态页面
   topics:
-    - html
-    - css
+    - HTML
+    - CSS
   steps: []
   ```
 
   ::: tip 提示
-  参考 [tuture.yml 详细说明](/zh/reference/tuture-yml-spec.md)以了解所有字段的含义。如果你对 YAML 语法不太熟悉也没有关系，因为在写教程的时候我们**不需要直接编辑此文件**。
+  参考 [tuture.yml 详细说明](/reference/tuture-yml-spec.md)以了解所有字段的含义。如果你对 YAML 语法不太熟悉也没有关系，因为实际写教程的时候我们基本上不需要编辑此文件。
   :::
 
 ### 编写代码
@@ -104,7 +106,7 @@ $ git commit -m "写一个最简单的 HTML 页面"
 
 运行 `tuture up` 命令，会弹出浏览器编辑页面：
 
-![](../assets/tuture-up.png)
+![](../assets/s1.png)
 
 可以看到，tuture 已经帮我们整理好了教程的结构，并且把刚才提交的代码变化罗列了出来。
 
@@ -116,7 +118,7 @@ $ git commit -m "写一个最简单的 HTML 页面"
 
 我们只需点击各个地方的“编写”按钮，就可以在弹出的 Markdown 编辑框中进行编辑了。编辑完成后点击“确定”按钮后，教程的第一步已经写好了：
 
-![](../assets/tuture-up-edit.png)
+![](../assets/s2.png)
 
 右边红色的框中是**步骤文件目录**，列出了这一步骤中的所有发生修改的文件。黑色的文件名表示这一文件将在教程中展示（例如上面的 index.html），而灰色的文件名则表示此文件被隐藏（例如 .gitignore 和 tuture.yml）。点击每个文件名框右侧的“眼睛”按钮即可调整显示/隐藏状态。
 
@@ -148,7 +150,7 @@ p {
 <!doctype html>
 <html>
   <head>
-    <title>我的第一篇教程</title>
+    <title>个人博客</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -167,7 +169,7 @@ $ git commit -m "添加 CSS 样式表"
 
 回到浏览器编辑界面，会发现第二步骤已经自动添加了进去：
 
-![](../assets/tuture-up-edit2.png)
+![](../assets/s3.png)
 
 可以看到 Tuture 为我们把 `index.html` 的变化非常清晰地标注了出来，这能够让阅读教程的读者轻松地跟上你的节奏，边看边亲身实践。
 
@@ -175,11 +177,11 @@ $ git commit -m "添加 CSS 样式表"
 
 调整好顺序后，我们继续编写第二步的讲解文字。在第二步的最后，我们希望插入最后写好的页面的展示图片。点击 Markdown 编辑器右上角的“插入图片”按钮，或是直接将图片粘贴到编辑区域中，即可完成图片的插入：
 
-![](../assets/insert-image.png)
+![](../assets/s4.png)
 
 点击 Markdown 编辑器的预览按钮，就能看到我们刚才插入的图片了！
 
-![](../assets/preview-image.png)
+![](../assets/s5.png)
 
 这样我们就完成了一个非常简短的教程。点击右下角的“保存”按钮，就可以欣赏我们的作品了！
 
