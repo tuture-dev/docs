@@ -15,14 +15,26 @@ jobs:
       - name: Build
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
-      - run: |
-          npm install
-          npm run build
+          node-version: 12.x
+      
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
+      - name: Install dependencies and build vuepress
+        run: |
+          yarn
+          yarn build
 
       - name: Deploy
         run:
-          npm run deploy
+          yarn deploy
         env:
           SECRET_ID: ${{ secrets.SECRET_ID }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
