@@ -31,7 +31,10 @@ Windows 用户请在 Git 附带的 **Git Bash** 中运行所有命令。
 ```bash
 $ tuture init
 ? Tutorial Name 用 HTML 和 CSS 写简单的静态页面
+? Description
 ? Topics HTML,CSS
+? Categories
+info Inferred github repository: https://github.com/pftom/my-awesome-tutorial. Feel free to revise or delete it.
 info .gitignore file created.
 info Git post-commit hook added.
 success Tuture tutorial has been initialized!
@@ -56,7 +59,10 @@ success Tuture tutorial has been initialized!
 - `.gitignore`，这个文件大家都很熟悉了。Tuture 自动添加了忽略 `.tuture` 目录的规则，这里我们再添加一些 Node 项目的规则：
 
   ```
+  # Tuture-related files
+  
   .tuture
+  tuture-build
   node_modules
   ```
 
@@ -66,12 +72,17 @@ success Tuture tutorial has been initialized!
 
   ```yaml
   name: 用 HTML 和 CSS 写简单的静态页面
+  description: ''
   topics:
     - HTML
     - CSS
+  created: 2019-12-14T08:10:45.855Z
+  updated: 2019-12-14T08:10:45.855Z
   steps: []
+  id: 29cb98ae3ed81bdcb988968cd4f79f8f
+  github: "https://github.com/pftom/my-awesome-tutorial"
   ```
-
+  
   ::: tip 提示
   参考 [tuture.yml 详细说明](/reference/tuture-yml-spec.md)以了解所有字段的含义。如果你对 YAML 语法不太熟悉也没有关系，因为实际写教程的时候我们基本上不需要编辑此文件。
   :::
@@ -179,7 +190,7 @@ $ git commit -m "添加 CSS 样式表"
 
 ![](../assets/s4.png)
 
-点击 Markdown 编辑器的预览按钮，就能看到我们刚才插入的图片了！
+可以看到 Markdown 编辑器右边的预览展示了我们插入的图片！
 
 ![](../assets/s5.png)
 
