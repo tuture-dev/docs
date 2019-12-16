@@ -30,9 +30,10 @@ $ git submodule add <repo_git_url> tutorials/<repo_name>
 
 ```bash
 $ npm install
-$ npm run buildTutorials
+$ npm run build:tutorials
 $ npm start
 ```
+
 :::
 
 4. 提交修改并上传：
@@ -63,7 +64,7 @@ $ tuture build
 
 ### 涉及有图片资源的情形
 
-如果您的教程中有图片资源，图雀会将默认的图片文件夹（即 tuture-assets）整个复制到构建的 Markdown 文档同一目录下。如果您想要自定义的路径前缀，build 命令提供了一个参数 `--assetsPath` 用于替换所有图片资源的路径前缀，并且所有图片会放入到。
+如果您的教程中有图片资源，图雀会将默认的图片文件夹（即 tuture-assets）整个复制到构建的 Markdown 文档同一目录下。如果您想要自定义的路径前缀，build 命令提供了一个参数 `--assetsPath` 用于替换所有图片资源的路径前缀，并且所有图片会放入到这个路径里面。
 
 例如，原先教程中图片的 Markdown 代码可能是 `![](tuture-assets/img.png)，那么通过运行以下命令：
 
