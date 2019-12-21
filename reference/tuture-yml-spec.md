@@ -10,7 +10,56 @@ sidebarDepth: 3
 **除了修改元数据字段（即除 `steps` 以外），强烈建议不要手动编辑此文件**。我们推荐直接在浏览器编辑器中书写教程。
 :::
 
-## 一个完整的例子
+## 完整的例子
+
+一篇 Tuture 工具写作的教程可能只包含一部分，也可能包含多个部分。下面分别展示这两种情况的完整例子。
+
+### 只包含一部分的教程
+
+```yaml
+name: 教程名称
+topics:
+  - JavaScript
+  - Express
+categories:
+  - 前端
+  - 入门
+description: 这是我写的第一篇教程，快来看看吧
+cover: https://example.com/image.png
+created: "2019/7/13 20:46:25"
+updated: "2010/7/20 09:23:10"
+github: https://github.com/username/repository
+steps:
+  - name: 第一步的标题
+    commit: ae05546
+    explain:
+      pre: 此步骤最前面的介绍文字
+      post: 此步骤最后的总结文字
+    diff:
+      - file: 发生变化的文件 A
+        display: true
+        explain:
+          pre: 修改此部分 A 之前的介绍文字
+  - name: 第二步的标题
+    commit: a45bec1o
+    explain:
+      pre: 此步骤最前面的介绍文字
+      post: 此步骤最后的总结文字
+    diff:
+      - file: 发生变化的文件 B
+        display: true
+        explain:
+          pre: 在修改 B 之前的介绍
+      - file: 发生变化的文件 C
+        display: true
+        explain:
+          pre: 修改 C 之前的介绍文字
+          post: 修改 C 之后的解释文字
+```
+
+### 包含多部分的教程
+
+与只包含一部分的教程相比，多部分教程主要添加了 `splits` 字段。`splits` 字段是一个数组，每个数组元素对应教程的一部分，并且其中的元数据字段（例如教程名称 `name`、简介 `description`、封面 `cover` 等等）
 
 ```yaml
 name: 教程名称
@@ -22,12 +71,14 @@ created: "2019/7/13 20:46:25"
 updated: "2010/7/20 09:23:10"
 github: https://github.com/username/repository
 splits:
-  - name: 教程名称（1）
+  - name: 教程第一部分的标题
     description: 这是教程第一部分的描述
+    cover: tuture-assets/cover-1.png
     start: ae05546
     end: ae05546
-  - name: 教程名称（2）
+  - name: 教程第二部分的标题
     description: 这是教程第二部分的描述
+    cover: tuture-assets/cover-2.png
     start: a45bec1
     end: a45bec1
 steps:
@@ -39,16 +90,6 @@ steps:
     diff:
       - file: 发生变化的文件 A
         display: true
-        section:
-          start: 1
-          end: 9
-        explain:
-          pre: 修改此部分 A 之前的介绍文字
-      - file: 发生变化的文件 A
-        display: true
-        section:
-          start: 10
-          end: 20
         explain:
           pre: 修改此部分 A 之前的介绍文字
       - file: 发生变化的文件 B
@@ -108,6 +149,12 @@ steps:
 
 这能帮助人们更快地发现你的教程并且产生兴趣。
 
+### `cover`
+
+教程的封面。
+
+可以是网址链接（例如 `https://example.com/image.png`），也可以是本地指向图片的路径（例如 `tuture-assets/image.png`）。
+
 ### `created`
 
 教程创建时间。
@@ -135,6 +182,12 @@ steps:
 此部分的描述。
 
 如果给出定义，那么全局的 `description` 将被覆盖。
+
+#### `cover`
+
+教程的封面。
+
+如果给出定义，那么全局的 `cover` 将被覆盖。
 
 #### `start` <span class="required">required</span>
 
@@ -223,32 +276,40 @@ interface Explain {
 
 interface Diff {
   file: string;
+  explain?: Explain;
   display?: boolean;
-  explain?: Explain;
 }
 
-interface Step {
-  name: string;
-  commit: string;
-  explain?: Explain;
-  outdated?: boolean;
-  diff: Diff[];
-}
-
-export interface Split {
-  start: string;
-  end: string;
-  name?: string;
-  description?: string;
-}
-
-interface Tuture {
+interface TutureMeta {
   name: string;
   topics?: string[];
+  categories?: string[];
   description?: string;
-  splits?: Split[];
   created?: Date;
   updated?: Date;
+  cover?: string;
+  github?: string;
+}
+
+interface Split extends TutureMeta {
+  start: string;
+  end: string;
+}
+
+interface Commit {
+  name: string;
+  commit: string;
+}
+
+interface Step extends Commit {
+  explain?: Explain;
+  diff: Diff[];
+  outdated?: boolean;
+}
+
+interface Tuture extends TutureMeta {
+  id?: string;
+  splits?: Split[];
   steps: Step[];
 }
 ```
