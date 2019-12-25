@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /hero.png
+heroImage: /hero.jpg
 actionText: 立刻开始 →
 actionLink: /guide/
 footer: MIT Licensed | Copyright © 2018-present Tuture Authors
