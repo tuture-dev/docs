@@ -6,12 +6,10 @@
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev",
-    "build": "vuepress build",
-    "deploy": "node deploy.js"
+    "build": "vuepress build"
   },
   "devDependencies": {
-    "cos-nodejs-sdk-v5": "^2.5.14",
-    "dotenv": "^8.2.0",
+    "fs-extra": "^8.1.0",
     "vuepress": "^1.2.0"
   }
 }

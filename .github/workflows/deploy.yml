@@ -7,16 +7,20 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
+      - name: Configuring git identity
+        run: |
+          git config --global user.email "mrc@tuture.co"
+          git config --global user.name mRcfps
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
 
       - name: Build
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      
+
       - name: Cache node modules
         uses: actions/cache@v1
         with:
@@ -33,10 +37,14 @@ jobs:
           yarn build
 
       - name: Deploy
-        run:
-          yarn deploy
+        run: |
+          git checkout -b $BRANCH_NAME
+          node buildCodingPages.js
+          git add .
+          git commit -m "Automatic deploy (`date`)"
+          git remote add $REMOTE $CODING_REPO
+          git push -f -u $REMOTE $BRANCH_NAME
         env:
-          SECRET_ID: ${{ secrets.SECRET_ID }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
-          BUCKET_REGION: ${{ secrets.BUCKET_REGION }}
+          REMOTE: coding
+          BRANCH_NAME: coding-pages
+          CODING_REPO: ${{ secrets.CODING_REPO }}
