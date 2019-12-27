@@ -44,6 +44,7 @@ module.exports = {
             'installation',
             'start-writing',
             'sharing',
+            'hub',
             'configuration',
             'advanced',
           ],
